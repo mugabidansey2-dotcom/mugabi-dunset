@@ -1,0 +1,29 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="32" fill="url(#bg)"/>
+  <rect y="520" width="1200" height="180" fill="#0F3D2E" opacity="0.9"/>
+  <rect x="110" y="140" width="980" height="360" rx="24" fill="white" fill-opacity="0.95"/>
+  <rect x="180" y="220" width="280" height="220" rx="12" fill="#E8F2EF"/>
+  <rect x="220" y="290" width="200" height="80" rx="8" fill="#2F6B4F"/>
+  <rect x="250" y="250" width="140" height="24" rx="6" fill="#1F4A37"/>
+  <rect x="250" y="378" width="140" height="16" rx="8" fill="#A3C8B3"/>
+  <rect x="520" y="220" width="320" height="140" rx="16" fill="#F4F8F6"/>
+  <rect x="560" y="250" width="240" height="18" rx="9" fill="#2F6B4F"/>
+  <rect x="560" y="286" width="140" height="14" rx="7" fill="#8BAA9B"/>
+  <rect x="560" y="314" width="180" height="14" rx="7" fill="#8BAA9B"/>
+  <rect x="520" y="390" width="320" height="50" rx="12" fill="#1B5A3F"/>
+  <path d="M840 220H900V430H840V220Z" fill="#275D45"/>
+  <path d="M770 220H840V430H770V220Z" fill="#2F6B4F"/>
+  <path d="M770 220L805 170L840 220H770Z" fill="#1F4A37"/>
+  <path d="M805 170L850 220H760L805 170Z" fill="#1F4A37"/>
+  <path d="M806 170L806 125" stroke="#C7A96C" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="806" cy="112" r="20" fill="#C7A96C"/>
+  <rect x="104" y="474" width="992" height="6" rx="3" fill="white" fill-opacity="0.25"/>
+  <text x="180" y="620" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="46" font-weight="700">SDA CHURCH BUGEMA UNIVERSITY</text>
+  <text x="180" y="665" fill="#D7E9E0" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="500">Responsive digital ministry website</text>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="30" x2="1080" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0F4C81"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,15 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="42" fill="#3F1D0C"/>
+  <rect x="94" y="94" width="1012" height="512" rx="34" fill="#FFF7ED"/>
+  <rect x="158" y="164" width="300" height="270" rx="26" fill="#FFEDD5"/>
+  <rect x="202" y="218" width="212" height="28" rx="14" fill="#EA580C"/>
+  <rect x="202" y="262" width="150" height="18" rx="9" fill="#FB923C"/>
+  <rect x="202" y="294" width="190" height="18" rx="9" fill="#FED7AA"/>
+  <rect x="520" y="176" width="220" height="180" rx="24" fill="#FDE68A"/>
+  <circle cx="630" cy="266" r="68" fill="#F59E0B"/>
+  <rect x="780" y="176" width="170" height="180" rx="24" fill="#FECACA"/>
+  <path d="M827 300L860 245L893 300" stroke="#DC2626" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="520" y="392" width="300" height="84" rx="22" fill="#1F2937"/>
+  <text x="158" y="602" fill="#9A2C00" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="700">CREATIVE DESIGN SHOWCASE</text>
+  <text x="158" y="634" fill="#C2410C" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="500">Editorial, bold and modern visual concepts</text>
+</svg>

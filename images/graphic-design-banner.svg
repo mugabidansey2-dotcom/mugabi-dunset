@@ -1,0 +1,17 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="42" fill="#0F172A"/>
+  <rect x="82" y="92" width="1036" height="516" rx="34" fill="#F8FAFC"/>
+  <rect x="132" y="146" width="360" height="280" rx="28" fill="#EEF2FF"/>
+  <rect x="178" y="198" width="268" height="176" rx="22" fill="#4F46E5"/>
+  <circle cx="312" cy="286" r="72" fill="#818CF8"/>
+  <rect x="540" y="156" width="320" height="92" rx="18" fill="#E2E8F0"/>
+  <rect x="540" y="272" width="220" height="18" rx="9" fill="#64748B"/>
+  <rect x="540" y="306" width="280" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="540" y="340" width="240" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="132" y="460" width="560" height="110" rx="24" fill="#0F172A"/>
+  <text x="168" y="515" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">GRAPHIC DESIGN</text>
+  <text x="168" y="550" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="500">Branding, layouts & digital visuals</text>
+  <circle cx="940" cy="250" r="108" fill="#C7D2FE" fill-opacity="0.8"/>
+  <path d="M900 250H980" stroke="#312E81" stroke-width="16" stroke-linecap="round"/>
+  <path d="M940 210V290" stroke="#312E81" stroke-width="16" stroke-linecap="round"/>
+</svg>
