@@ -6,235 +6,8 @@
     <title>About - Danny Tech</title>
     <meta name="description" content="About Mugabi Danset — creative developer and designer building meaningful digital experiences.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark.css">
     <link rel="stylesheet" href="superpowers.css">
-    <style>
-        /* ── Dark theme override for about page ──────────────────────────────── */
-        body {
-            background: #000 !important;
-        }
-        body::before, body::after {
-            display: none; /* hide the light-mode blobs */
-        }
-
-        /* Navbar goes dark */
-        .navbar {
-            background: rgba(0, 0, 0, 0.85) !important;
-            backdrop-filter: blur(14px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.6) !important;
-        }
-        .logo-link span,
-        .nav-links a {
-            color: #fff !important;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-color) !important;
-        }
-        .nav-links a.active::after {
-            background-color: var(--accent-color) !important;
-        }
-
-        /* About section dark background — seamless with photo */
-        .about-content {
-            background: #000 !important;
-            padding-top: 3rem;
-        }
-
-        /* Section label + heading — white text */
-        .section-label {
-            color: var(--accent-color) !important;
-        }
-        .about-heading h2 {
-            color: #fff !important;
-        }
-
-        /* "Who I Am" text block */
-        .about-text h3 {
-            color: #fff !important;
-        }
-        .about-text p {
-            color: rgba(255,255,255,0.75) !important;
-        }
-
-        /* Photo — no border, no shadow, blends into black bg */
-        .about-photo {
-            border: none !important;
-            box-shadow: none !important;
-            border-radius: 16px;
-            width: 100%;
-            object-fit: cover;
-        }
-        .about-image {
-            background: #000;
-        }
-
-        /* Cards — dark glass style */
-        .about-section-card {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            box-shadow: none !important;
-        }
-        .about-section-card h3 {
-            color: #fff !important;
-        }
-
-        /* Skill items */
-        .skill-item {
-            background: rgba(255,255,255,0.06) !important;
-            border: 1px solid rgba(255,255,255,0.1) !important;
-        }
-        .skill-item h4 {
-            color: var(--accent-color) !important;
-            margin-bottom: 0.3rem;
-        }
-        .skill-item > p { display: none; }
-
-        /* Timeline */
-        .timeline-item {
-            background: rgba(255,255,255,0.05) !important;
-            border-left: 4px solid var(--accent-color) !important;
-        }
-        .timeline-item h4 { color: #fff !important; }
-        .timeline-item p  { color: rgba(255,255,255,0.65) !important; }
-        .timeline-date    { color: var(--accent-color) !important; }
-        .timeline-item::before {
-            border-color: #000 !important;
-            box-shadow: 0 0 0 3px var(--accent-color) !important;
-            background: var(--accent-color) !important;
-        }
-
-        /* Footer */
-        footer {
-            background: #000 !important;
-            border-top: 1px solid rgba(255,255,255,0.08) !important;
-            color: rgba(255,255,255,0.6) !important;
-        }
-        footer p { color: rgba(255,255,255,0.5); }
-        .social-links a { color: rgba(255,255,255,0.7) !important; }
-        .social-links a:hover { color: var(--accent-color) !important; }
-
-        /* ── Scroll reveal ──────────────────────────────────────────────────── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-32px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-        .reveal-left.visible { opacity: 1; transform: translateX(0); }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(32px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-        .reveal-right.visible { opacity: 1; transform: translateX(0); }
-
-        /* ── Skill tags ─────────────────────────────────────────────────────── */
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-        }
-        .skill-tag {
-            display: inline-block;
-            padding: 0.3rem 0.85rem;
-            border-radius: 999px;
-            background: rgba(56, 189, 248, 0.12);
-            color: var(--accent-color);
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: default;
-            opacity: 0;
-            transform: scale(0.85);
-        }
-        .skill-tag.tag-visible {
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 0.35s ease, transform 0.35s ease,
-                        background 0.25s ease, box-shadow 0.2s ease;
-        }
-        .skill-tag:hover {
-            background: var(--accent-color);
-            color: #000;
-            transform: translateY(-2px) scale(1.04);
-            box-shadow: 0 6px 16px rgba(56, 189, 248, 0.3);
-        }
-
-        /* ── Timeline dot ───────────────────────────────────────────────────── */
-        .timeline-item {
-            position: relative;
-            transition: box-shadow 0.3s ease;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -22px;
-            top: 50%;
-            transform: translateY(-50%) scale(0);
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .timeline-item.tl-visible::before { transform: translateY(-50%) scale(1); }
-        .timeline { padding-left: 16px; }
-
-        /* ── Typing cursor ──────────────────────────────────────────────────── */
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0; }
-        }
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1em;
-            background: var(--accent-color);
-            margin-left: 2px;
-            vertical-align: middle;
-            animation: blink 0.9s step-end infinite;
-        }
-
-        /* Stagger for skill items */
-        .skill-item:nth-child(1) { transition-delay: 0s; }
-        .skill-item:nth-child(2) { transition-delay: 0.08s; }
-        .skill-item:nth-child(3) { transition-delay: 0.16s; }
-        .skill-item:nth-child(4) { transition-delay: 0.24s; }
-        .skill-item:nth-child(5) { transition-delay: 0.32s; }
-
-        /* ── Photo slideshow ────────────────────────────────────────────────── */
-        .photo-slideshow {
-            position: relative;
-            width: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #000; /* matches photo bg exactly */
-        }
-        .photo-slideshow .slide {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            border: none !important;
-            box-shadow: none !important;
-            border-radius: 0;
-            opacity: 0;
-            position: absolute;
-            top: 0; left: 0;
-            transition: opacity 0.8s ease;
-        }
-        .photo-slideshow .slide.active {
-            opacity: 1;
-            position: relative; /* keeps the container sized to the image */
-        }
-    </style>
 </head>
 <body>
     <!-- Superpowers scaffolding -->
@@ -253,7 +26,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image">
+                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image" width="42" height="42">
                     <span>Danny Tech</span>
                 </a>
             </div>
@@ -276,15 +49,14 @@
 
             <div class="about-grid">
                 <div class="about-text reveal-left">
-                <h3 data-scramble>Who I Am</h3>
+                    <h3 data-scramble>Who I Am</h3>
                     <p>Hello! I'm Mugabi Danset, a creative developer and designer with a passion for building websites, visual identities, and digital products that solve real problems.</p>
                     <p>I enjoy combining thoughtful design with clean technical execution, whether I'm crafting a user-friendly website or shaping a visual concept for a brand or campaign.</p>
                     <p>My work sits at the intersection of technology, design, and storytelling, and I'm always excited to turn ideas into polished digital experiences.</p>
                 </div>
                 <div class="about-image reveal-right" data-parallax="0.08">
-                    <!-- slideshow wrapper — add more <img> tags here when you have extra photos -->
                     <div class="photo-slideshow">
-                        <img src="images/danny.jpeg" alt="Mugabi Danset, developer and designer" class="about-photo slide active">
+                        <img src="images/danny.jpeg" alt="Mugabi Danset, developer and designer" class="about-photo slide active" width="520" height="640" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -369,86 +141,55 @@
         </div>
     </footer>
 
+    <script defer src="superpowers.js"></script>
     <script>
-        // ── 1. Dynamic copyright year ─────────────────────────────────────────
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-        // ── 2. Typing animation for the section heading ───────────────────────
-        function typeText(el, text, speed = 38) {
-            let i = 0;
-            const cursor = document.createElement('span');
-            cursor.className = 'cursor';
-            el.appendChild(cursor);
+            const presentEl = document.getElementById('date-present');
+            if (presentEl) presentEl.textContent = `2023 \u2013 ${new Date().getFullYear()}`;
 
-            const interval = setInterval(() => {
-                el.insertBefore(document.createTextNode(text[i]), cursor);
-                i++;
-                if (i >= text.length) {
-                    clearInterval(interval);
-                    // remove cursor after a short pause
-                    setTimeout(() => cursor.remove(), 1800);
-                }
-            }, speed);
-        }
+            // Typing animation
+            function typeText(el, text, speed = 38) {
+                let i = 0;
+                const cursor = document.createElement('span');
+                cursor.className = 'cursor';
+                el.appendChild(cursor);
+                const interval = setInterval(() => {
+                    el.insertBefore(document.createTextNode(text[i]), cursor);
+                    if (++i >= text.length) { clearInterval(interval); setTimeout(() => cursor.remove(), 1800); }
+                }, speed);
+            }
 
-        // ── 3. Scroll-reveal with IntersectionObserver ────────────────────────
-        function initReveal() {
-            const selectors = '.reveal, .reveal-left, .reveal-right, .timeline-item';
-            const items = document.querySelectorAll(selectors);
-
+            // Scroll reveal
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const el = entry.target;
-
-                        if (el.classList.contains('timeline-item')) {
-                            el.classList.add('tl-visible');
-                        } else {
-                            el.classList.add('visible');
-                        }
-
-                        // Animate skill tags inside a revealed skill card
-                        if (el.classList.contains('reveal')) {
-                            const tags = el.querySelectorAll('.skill-tag');
-                            tags.forEach((tag, i) => {
-                                setTimeout(() => tag.classList.add('tag-visible'), i * 60);
-                            });
-                        }
-
-                        observer.unobserve(el);
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    el.classList.contains('timeline-item') ? el.classList.add('tl-visible') : el.classList.add('visible');
+                    if (el.classList.contains('reveal')) {
+                        el.querySelectorAll('.skill-tag').forEach((tag, i) =>
+                            setTimeout(() => tag.classList.add('tag-visible'), i * 60));
                     }
+                    observer.unobserve(el);
                 });
             }, { threshold: 0.15 });
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .timeline-item')
+                    .forEach(el => observer.observe(el));
 
-            items.forEach(el => observer.observe(el));
-        }
-
-        // ── 4. Wire everything up on DOMContentLoaded ─────────────────────────
-        document.addEventListener('DOMContentLoaded', () => {
-            initReveal();
-
-            // Typing animation for the heading
+            // Heading typing
             const headingEl = document.getElementById('about-heading-text');
-            const headingText = 'I build digital experiences that are both meaningful and practical.';
-            const headingObserver = new IntersectionObserver((entries) => {
+            const headingObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        typeText(headingEl, headingText);
-                        headingObserver.unobserve(entry.target);
+                        typeText(headingEl, 'I build digital experiences that are both meaningful and practical.');
+                        headingObs.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.5 });
-            headingObserver.observe(headingEl);
+            headingObs.observe(headingEl);
 
-            // Dynamic "Present" year in timeline
-            const presentEl = document.getElementById('date-present');
-            if (presentEl) {
-                presentEl.textContent = `2023 – ${new Date().getFullYear()}`;
-            }
-
-            // ── Slideshow ────────────────────────────────────────────────────
-            // To add more photos later, just drop more <img class="about-photo slide">
-            // tags inside .photo-slideshow — this JS handles the rest automatically.
+            // Slideshow
             const slides = document.querySelectorAll('.photo-slideshow .slide');
             if (slides.length > 1) {
                 let current = 0;
@@ -456,10 +197,9 @@
                     slides[current].classList.remove('active');
                     current = (current + 1) % slides.length;
                     slides[current].classList.add('active');
-                }, 4000); // change photo every 4 seconds
+                }, 4000);
             }
         });
     </script>
-    <script src="superpowers.js"></script>
 </body>
 </html>

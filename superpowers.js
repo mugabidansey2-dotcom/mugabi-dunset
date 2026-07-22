@@ -193,33 +193,50 @@
         }
 
         function connectParticles() {
+            // Batch into opacity buckets to minimise ctx state changes
+            const lines = [];
             for (let a = 0; a < particles.length; a++) {
                 for (let b = a + 1; b < particles.length; b++) {
                     const dx = particles[a].x - particles[b].x;
                     const dy = particles[a].y - particles[b].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 90) {
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - dist / 90) * 0.15})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
+                    const dist = dx * dx + dy * dy; // skip sqrt for comparison
+                    if (dist < 8100) { // 90^2
+                        const opacity = (1 - Math.sqrt(dist) / 90) * 0.15;
+                        lines.push({ ax: particles[a].x, ay: particles[a].y,
+                                     bx: particles[b].x, by: particles[b].y, opacity });
                     }
                 }
             }
+            // Sort by opacity so we can batch same-opacity lines
+            lines.sort((a, b) => a.opacity - b.opacity);
+            let lastOp = -1;
+            ctx.lineWidth = 0.5;
+            lines.forEach(l => {
+                if (Math.abs(l.opacity - lastOp) > 0.01) {
+                    if (lastOp >= 0) ctx.stroke();
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(255,255,255,${l.opacity.toFixed(2)})`;
+                    lastOp = l.opacity;
+                }
+                ctx.moveTo(l.ax, l.ay);
+                ctx.lineTo(l.bx, l.by);
+            });
+            if (lastOp >= 0) ctx.stroke();
         }
 
+        // ── Pause when tab is hidden to save CPU ──────────────────────────
+        let paused = false;
+        document.addEventListener('visibilitychange', () => {
+            paused = document.hidden;
+            if (!paused) requestAnimationFrame(animate);
+        });
+
         function animate() {
+            if (paused) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw webs first (deepest layer)
             webs.forEach(w => { w.update(); w.draw(); });
-
-            // Then particles + connections on top
             particles.forEach(p => { p.update(); p.draw(); });
             connectParticles();
-
             requestAnimationFrame(animate);
         }
 

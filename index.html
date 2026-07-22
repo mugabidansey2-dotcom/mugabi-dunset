@@ -3,103 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - Welcome</title>
+    <title>Danny Tech - Portfolio</title>
+    <meta name="description" content="Mugabi Danset — creative developer and designer building thoughtful web experiences.">
+    <!-- DNS prefetch for external image CDNs -->
+    <link rel="dns-prefetch" href="//mir-s3-cdn-cf.behance.net">
+    <link rel="dns-prefetch" href="//sdac.bugemauniv.ac.ug">
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark.css">
     <link rel="stylesheet" href="superpowers.css">
     <link rel="stylesheet" href="intro.css">
-    <style>
-        /* ── Dark theme override for index page ───────────────────────────── */
-        body {
-            background: #000 !important;
-        }
-        body::before, body::after {
-            display: none;
-        }
-
-        /* Navbar goes dark */
-        .navbar {
-            background: rgba(0, 0, 0, 0.85) !important;
-            backdrop-filter: blur(14px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.6) !important;
-        }
-        .logo-link span,
-        .nav-links a {
-            color: #fff !important;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-color) !important;
-        }
-        .nav-links a.active::after {
-            background-color: var(--accent-color) !important;
-        }
-
-        /* Hero section — pure black, no gradient */
-        .hero {
-            background: #000 !important;
-        }
-        .hero::before, .hero::after {
-            display: none !important;
-        }
-        
-        /* Hero image — no border, blends with dark bg */
-        .hero-image-card {
-            border-radius: 16px !important;
-            box-shadow: none !important;
-            background: #000;
-            transform: none !important;
-        }
-        .hero-image-card img {
-            border-radius: 16px;
-            border: none !important;
-        }
-        .hero-image-card::after {
-            display: none;
-        }
-
-        /* Featured section — dark background */
-        .featured {
-            background: #000 !important;
-        }
-        .section-label {
-            color: var(--accent-color) !important;
-        }
-        .featured h3 {
-            color: #fff !important;
-        }
-
-        /* Work cards — dark glass */
-        .work-card {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            box-shadow: none !important;
-        }
-        .work-card:hover {
-            border-color: rgba(56, 189, 248, 0.3) !important;
-            box-shadow: 0 16px 35px rgba(56, 189, 248, 0.15) !important;
-        }
-        .work-content h4 {
-            color: #fff !important;
-        }
-        .work-content p {
-            color: rgba(255,255,255,0.65) !important;
-        }
-        .card-link {
-            color: var(--accent-color) !important;
-        }
-
-        /* CTA section stays as-is (already dark gradient) */
-
-        /* Footer */
-        footer {
-            background: #000 !important;
-            border-top: 1px solid rgba(255,255,255,0.08) !important;
-            color: rgba(255,255,255,0.6) !important;
-        }
-        footer p { color: rgba(255,255,255,0.5); }
-        .social-links a { color: rgba(255,255,255,0.7) !important; }
-        .social-links a:hover { color: var(--accent-color) !important; }
-    </style>
 </head>
 <body>
     <!-- Superpowers scaffolding -->
@@ -118,7 +31,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image">
+                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image" width="42" height="42">
                     <span>Danny Tech</span>
                 </a>
             </div>
@@ -147,7 +60,7 @@
                 </div>
             </div>
             <div class="hero-image-card">
-                <img src="images/danny.jpeg" alt="Mugabi Danset">
+                <img src="images/danny.jpeg" alt="Mugabi Danset" width="520" height="520">
             </div>
         </div>
     </section>
@@ -161,7 +74,7 @@
             </div>
             <div class="work-grid">
                 <a class="work-card" href="https://www.behance.net/gallery/251337029/20-days" target="_blank" rel="noopener noreferrer">
-                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/041b02251337029.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="20 Days Behance project cover">
+                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/041b02251337029.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="20 Days Behance project cover" width="808" height="631" loading="lazy">
                     <div class="work-content">
                         <h4>20 Days</h4>
                         <p>Visual concept work that highlights clarity, mood, and thoughtful composition.</p>
@@ -169,7 +82,7 @@
                     </div>
                 </a>
                 <a class="work-card" href="https://www.behance.net/gallery/251335811/debate-tryouts" target="_blank" rel="noopener noreferrer">
-                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/841d81251335811.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg" alt="Debate Tryouts Behance project cover">
+                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/841d81251335811.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg" alt="Debate Tryouts Behance project cover" width="808" height="631" loading="lazy">
                     <div class="work-content">
                         <h4>Debate Tryouts</h4>
                         <p>An event-focused visual design piece with strong storytelling and layout choices.</p>
@@ -177,7 +90,7 @@
                     </div>
                 </a>
                 <a class="work-card" href="https://www.behance.net/gallery/250698605/my-works" target="_blank" rel="noopener noreferrer">
-                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/5de8d4250698605.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="My Works Behance project cover">
+                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/5de8d4250698605.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="My Works Behance project cover" width="808" height="631" loading="lazy">
                     <div class="work-content">
                         <h4>My Works</h4>
                         <p>A curated look at my broader creative range, from branding to visual storytelling.</p>
@@ -207,9 +120,12 @@
         </div>
     </footer>
 
+    <script defer src="superpowers.js"></script>
+    <script defer src="intro.js"></script>
     <script>
-        function animateLetters(selector) {
-            document.querySelectorAll(selector).forEach((element) => {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Letter animation
+            document.querySelectorAll('.animate-letters').forEach((element) => {
                 const lines = element.querySelectorAll('.hero-line');
                 const animateText = (target) => {
                     const text = target.textContent.trim();
@@ -222,24 +138,13 @@
                         target.appendChild(span);
                     });
                 };
-
-                if (lines.length) {
-                    lines.forEach((line) => animateText(line));
-                    return;
-                }
-
+                if (lines.length) { lines.forEach(animateText); return; }
                 animateText(element);
             });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            animateLetters('.animate-letters');
-            // Dynamic copyright year
+            // Dynamic year
             const yearEl = document.getElementById('footer-year');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
         });
     </script>
-    <script src="superpowers.js"></script>
-    <script src="intro.js"></script>
 </body>
 </html>

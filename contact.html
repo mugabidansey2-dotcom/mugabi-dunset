@@ -4,119 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Danny Tech</title>
+    <meta name="description" content="Get in touch with Mugabi Danset — developer and designer based in Bugema, Uganda.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark.css">
     <link rel="stylesheet" href="superpowers.css">
-    <style>
-        /* ── Dark theme override for contact page ─────────────────────────── */
-        body {
-            background: #000 !important;
-        }
-        body::before, body::after {
-            display: none;
-        }
-
-        /* Navbar goes dark */
-        .navbar {
-            background: rgba(0, 0, 0, 0.85) !important;
-            backdrop-filter: blur(14px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.6) !important;
-        }
-        .logo-link span,
-        .nav-links a {
-            color: #fff !important;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-color) !important;
-        }
-        .nav-links a.active::after {
-            background-color: var(--accent-color) !important;
-        }
-
-        /* Contact section dark */
-        .contact-content {
-            background: #000 !important;
-            padding-top: 3rem;
-        }
-        .section-label {
-            color: var(--accent-color) !important;
-        }
-        .contact-heading h2 {
-            color: #fff !important;
-        }
-        .section-intro {
-            color: rgba(255,255,255,0.65) !important;
-        }
-
-        /* Contact cards — dark glass */
-        .contact-card {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            box-shadow: none !important;
-        }
-        .contact-card h3 {
-            color: #fff !important;
-        }
-
-        /* Form elements */
-        .form-group label {
-            color: rgba(255,255,255,0.85) !important;
-        }
-        .form-group input,
-        .form-group textarea {
-            background-color: rgba(255,255,255,0.06) !important;
-            border: 1px solid rgba(255,255,255,0.12) !important;
-            color: #fff !important;
-        }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.4);
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--accent-color) !important;
-            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
-            background-color: rgba(255,255,255,0.08) !important;
-        }
-
-        /* Info items */
-        .info-item h4 {
-            color: var(--accent-color) !important;
-        }
-        .info-item p {
-            color: rgba(255,255,255,0.65) !important;
-        }
-        .info-item a {
-            color: var(--accent-color) !important;
-        }
-        .info-item a:hover {
-            color: #fff !important;
-        }
-        .info-item {
-            border-bottom-color: rgba(255,255,255,0.08) !important;
-        }
-
-        /* Social follow buttons */
-        .social-follow a {
-            background-color: rgba(255,255,255,0.06) !important;
-            border: 1px solid rgba(255,255,255,0.1) !important;
-            color: var(--accent-color) !important;
-        }
-        .social-follow a:hover {
-            background-color: var(--accent-color) !important;
-            color: #000 !important;
-        }
-
-        /* Footer */
-        footer {
-            background: #000 !important;
-            border-top: 1px solid rgba(255,255,255,0.08) !important;
-            color: rgba(255,255,255,0.6) !important;
-        }
-        footer p { color: rgba(255,255,255,0.5); }
-        .social-links a { color: rgba(255,255,255,0.7) !important; }
-        .social-links a:hover { color: var(--accent-color) !important; }
-    </style>
 </head>
 <body>
     <!-- Superpowers scaffolding -->
@@ -135,7 +26,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image">
+                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image" width="42" height="42">
                     <span>Danny Tech</span>
                 </a>
             </div>
@@ -262,10 +153,9 @@
         </div>
     </footer>
 
+    <script defer src="superpowers.js"></script>
     <script>
-        // Dynamic copyright year
         document.getElementById('footer-year').textContent = new Date().getFullYear();
     </script>
-    <script src="superpowers.js"></script>
 </body>
 </html>

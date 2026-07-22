@@ -1,0 +1,334 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   DARK.CSS — Shared dark theme for all pages
+   Replaces all inline <style> blocks across index, about, projects, contact
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+body {
+    background: #000 !important;
+}
+body::before,
+body::after {
+    display: none !important;
+}
+
+/* ── Navbar ──────────────────────────────────────────────────────────────── */
+.navbar {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.6) !important;
+}
+.logo-link span,
+.nav-links a {
+    color: #fff !important;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color) !important;
+}
+.nav-links a.active::after {
+    background-color: var(--accent-color) !important;
+}
+
+/* ── Section labels ──────────────────────────────────────────────────────── */
+.section-label {
+    color: var(--accent-color) !important;
+}
+.section-intro {
+    color: rgba(255,255,255,0.65) !important;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+footer {
+    background: #000 !important;
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+    color: rgba(255,255,255,0.6) !important;
+}
+footer p { color: rgba(255,255,255,0.5); }
+.social-links a { color: rgba(255,255,255,0.7) !important; }
+.social-links a:hover { color: var(--accent-color) !important; }
+
+/* ── Hero (index) ────────────────────────────────────────────────────────── */
+.hero {
+    background: #000 !important;
+}
+.hero::before,
+.hero::after {
+    display: none !important;
+}
+.hero-image-card {
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    background: #000;
+    transform: none !important;
+}
+.hero-image-card img {
+    border-radius: 16px;
+    border: none !important;
+}
+.hero-image-card::after {
+    display: none;
+}
+
+/* ── Featured work (index) ───────────────────────────────────────────────── */
+.featured {
+    background: #000 !important;
+}
+.featured h3 {
+    color: #fff !important;
+}
+.work-card {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+}
+.work-card:hover {
+    border-color: rgba(56,189,248,0.3) !important;
+    box-shadow: 0 16px 35px rgba(56,189,248,0.15) !important;
+}
+.work-content h4 { color: #fff !important; }
+.work-content p  { color: rgba(255,255,255,0.65) !important; }
+.card-link       { color: var(--accent-color) !important; }
+
+/* ── CTA (index) ─────────────────────────────────────────────────────────── */
+.cta {
+    background: #000 !important;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.cta h3 { color: #fff !important; }
+
+/* ── About page ──────────────────────────────────────────────────────────── */
+.about-content {
+    background: #000 !important;
+    padding-top: 3rem;
+}
+.about-heading h2,
+.about-text h3 {
+    color: #fff !important;
+}
+.about-text p {
+    color: rgba(255,255,255,0.75) !important;
+}
+.about-photo {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 16px;
+    width: 100%;
+    object-fit: cover;
+}
+.about-image { background: #000; }
+
+.about-section-card {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+}
+.about-section-card h3 { color: #fff !important; }
+
+.skill-item {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+.skill-item h4 {
+    color: var(--accent-color) !important;
+    margin-bottom: 0.3rem;
+}
+.skill-item > p { display: none; }
+
+.timeline-item {
+    background: rgba(255,255,255,0.05) !important;
+    border-left: 4px solid var(--accent-color) !important;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+.timeline-item h4    { color: #fff !important; }
+.timeline-item p     { color: rgba(255,255,255,0.65) !important; }
+.timeline-date       { color: var(--accent-color) !important; }
+.timeline-item::before {
+    border-color: #000 !important;
+    box-shadow: 0 0 0 3px var(--accent-color) !important;
+    background: var(--accent-color) !important;
+}
+.timeline { padding-left: 16px; }
+
+/* ── Scroll reveal ───────────────────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ── Skill tags ──────────────────────────────────────────────────────────── */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+.skill-tag {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(56,189,248,0.12);
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(56,189,248,0.25);
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+    opacity: 0;
+    transform: scale(0.85);
+}
+.skill-tag.tag-visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.35s ease, transform 0.35s ease, background 0.25s ease, box-shadow 0.2s ease;
+}
+.skill-tag:hover {
+    background: var(--accent-color);
+    color: #000;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 16px rgba(56,189,248,0.3);
+}
+
+/* ── Timeline dot ────────────────────────────────────────────────────────── */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.timeline-item.tl-visible::before { transform: translateY(-50%) scale(1); }
+
+/* ── Typing cursor ───────────────────────────────────────────────────────── */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--accent-color);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 0.9s step-end infinite;
+}
+
+/* ── Skill item stagger ──────────────────────────────────────────────────── */
+.skill-item:nth-child(1) { transition-delay: 0s; }
+.skill-item:nth-child(2) { transition-delay: 0.08s; }
+.skill-item:nth-child(3) { transition-delay: 0.16s; }
+.skill-item:nth-child(4) { transition-delay: 0.24s; }
+.skill-item:nth-child(5) { transition-delay: 0.32s; }
+
+/* ── Photo slideshow ─────────────────────────────────────────────────────── */
+.photo-slideshow {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+}
+.photo-slideshow .slide {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0; left: 0;
+    transition: opacity 0.8s ease;
+}
+.photo-slideshow .slide.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* ── Projects page ───────────────────────────────────────────────────────── */
+.projects-content {
+    background: #000 !important;
+    padding-top: 3rem;
+}
+.projects-content h2 { color: #fff !important; }
+.project-card {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+}
+.project-card:hover {
+    border-color: rgba(56,189,248,0.3) !important;
+    box-shadow: 0 16px 35px rgba(56,189,248,0.15) !important;
+}
+.project-info h3      { color: #fff !important; }
+.tech-stack           { color: var(--accent-color) !important; }
+.project-description  { color: rgba(255,255,255,0.65) !important; }
+
+/* ── Contact page ────────────────────────────────────────────────────────── */
+.contact-content {
+    background: #000 !important;
+    padding-top: 3rem;
+}
+.contact-heading h2 { color: #fff !important; }
+
+.contact-card {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: none !important;
+}
+.contact-card h3 { color: #fff !important; }
+
+.form-group label { color: rgba(255,255,255,0.85) !important; }
+.form-group input,
+.form-group textarea {
+    background-color: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    color: #fff !important;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,0.4); }
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 0 3px rgba(56,189,248,0.15) !important;
+    background-color: rgba(255,255,255,0.08) !important;
+}
+
+.info-item h4  { color: var(--accent-color) !important; }
+.info-item p   { color: rgba(255,255,255,0.65) !important; }
+.info-item a   { color: var(--accent-color) !important; }
+.info-item a:hover { color: #fff !important; }
+.info-item { border-bottom-color: rgba(255,255,255,0.08) !important; }
+
+.social-follow a {
+    background-color: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: var(--accent-color) !important;
+}
+.social-follow a:hover {
+    background-color: var(--accent-color) !important;
+    color: #000 !important;
+}

@@ -5,105 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Danny Tech</title>
     <meta name="description" content="Projects by Mugabi Danset — web development, graphic design, and creative work.">
+    <link rel="dns-prefetch" href="//mir-s3-cdn-cf.behance.net">
+    <link rel="dns-prefetch" href="//sdac.bugemauniv.ac.ug">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark.css">
     <link rel="stylesheet" href="superpowers.css">
-    <style>
-        /* ── Dark theme override for projects page ───────────────────────────── */
-        body {
-            background: #000 !important;
-        }
-        body::before, body::after {
-            display: none;
-        }
-
-        /* Navbar goes dark */
-        .navbar {
-            background: rgba(0, 0, 0, 0.85) !important;
-            backdrop-filter: blur(14px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.6) !important;
-        }
-        .logo-link span,
-        .nav-links a {
-            color: #fff !important;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-color) !important;
-        }
-        .nav-links a.active::after {
-            background-color: var(--accent-color) !important;
-        }
-
-        /* Projects section dark background */
-        .projects-content {
-            background: #000 !important;
-            padding-top: 3rem;
-        }
-
-        /* Headings + intro text */
-        .projects-content h2 {
-            color: #fff !important;
-        }
-        .section-intro {
-            color: rgba(255,255,255,0.65) !important;
-        }
-
-        /* Project cards — dark glass */
-        .project-card {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            box-shadow: none !important;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.01);
-            border-color: rgba(56, 189, 248, 0.3) !important;
-            box-shadow: 0 16px 35px rgba(56, 189, 248, 0.15) !important;
-        }
-
-        /* Project info inside card */
-        .project-info h3 {
-            color: #fff !important;
-        }
-        .tech-stack {
-            color: var(--accent-color) !important;
-        }
-        .project-description {
-            color: rgba(255,255,255,0.65) !important;
-        }
-
-        /* Link button */
-        .link-btn {
-            background-color: var(--accent-color) !important;
-            color: #000 !important;
-            font-weight: 700;
-        }
-        .link-btn:hover {
-            background-color: #fff !important;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: #000 !important;
-            border-top: 1px solid rgba(255,255,255,0.08) !important;
-            color: rgba(255,255,255,0.6) !important;
-        }
-        footer p { color: rgba(255,255,255,0.5); }
-        .social-links a { color: rgba(255,255,255,0.7) !important; }
-        .social-links a:hover { color: var(--accent-color) !important; }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
 </head>
 <body>
     <!-- Superpowers scaffolding -->
@@ -122,7 +28,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image">
+                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image" width="42" height="42">
                     <span>Danny Tech</span>
                 </a>
             </div>
@@ -142,10 +48,9 @@
             <p class="section-intro reveal">Here are some of my recent projects showcasing my skills and experience.</p>
 
             <div class="projects-grid">
-                <!-- Project 1 -->
                 <div class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://sdac.bugemauniv.ac.ug/_next/image?url=%2FABOUT%20SDAC.JPG&w=1200&q=75" alt="SDA Church Bugema University website preview">
+                        <img src="https://sdac.bugemauniv.ac.ug/_next/image?url=%2FABOUT%20SDAC.JPG&w=1200&q=75" alt="SDA Church Bugema University website preview" width="600" height="220" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>SDA Church Bugema University</h3>
@@ -157,10 +62,9 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/041b02251337029.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="20 days project cover from Behance">
+                        <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/041b02251337029.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="20 days project cover from Behance" width="808" height="631" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>20 Days</h3>
@@ -172,10 +76,9 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/841d81251335811.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg" alt="Debate Tryouts project cover from Behance">
+                        <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/841d81251335811.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg" alt="Debate Tryouts project cover from Behance" width="808" height="631" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>Debate Tryouts</h3>
@@ -187,10 +90,9 @@
                     </div>
                 </div>
 
-                <!-- Project 4 -->
                 <div class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/5de8d4250698605.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="My Works project cover from Behance">
+                        <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/5de8d4250698605.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="My Works project cover from Behance" width="808" height="631" loading="lazy">
                     </div>
                     <div class="project-info">
                         <h3>My Works</h3>
@@ -216,22 +118,20 @@
         </div>
     </footer>
 
+    <script defer src="superpowers.js"></script>
     <script>
-        // Dynamic copyright year
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-        // Scroll reveal with IntersectionObserver
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        reveals.forEach(el => observer.observe(el));
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
     </script>
-    <script src="superpowers.js"></script>
 </body>
 </html>
