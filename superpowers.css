@@ -2,16 +2,16 @@
    SUPERPOWERS.CSS — Visual scaffolding for all the JS effects
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Particle canvas — sits behind everything ───────────────────────────── */
+/* ── Particle + Spider web canvas — sits behind everything ───────────────── */
 #particle-canvas {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.6;
+    display: block;
 }
 
 /* Ensure page content stays above canvas */

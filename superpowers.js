@@ -16,15 +16,14 @@
         let mouse = { x: null, y: null, radius: 150 };
 
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = document.documentElement.scrollHeight;
-            initWebs();
+            canvas.width  = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
         resizeCanvas();
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = document.documentElement.scrollHeight;
+            resizeCanvas();
             initWebs();
+            initParticleSet();
         });
 
         // ── Spider Web ────────────────────────────────────────────────────────
@@ -226,7 +225,7 @@
 
         window.addEventListener('mousemove', (e) => {
             mouse.x = e.clientX;
-            mouse.y = e.clientY + window.scrollY;
+            mouse.y = e.clientY;
         });
         window.addEventListener('mouseleave', () => {
             mouse.x = null;
