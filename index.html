@@ -5,6 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - Welcome</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Dark theme override for index page ───────────────────────────── */
+        body {
+            background: #000 !important;
+        }
+        body::before, body::after {
+            display: none;
+        }
+
+        /* Navbar goes dark */
+        .navbar {
+            background: rgba(0, 0, 0, 0.85) !important;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.6) !important;
+        }
+        .logo-link span,
+        .nav-links a {
+            color: #fff !important;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color) !important;
+        }
+        .nav-links a.active::after {
+            background-color: var(--accent-color) !important;
+        }
+
+        /* Hero stays dark — already good */
+        
+        /* Hero image — no border, blends with dark bg */
+        .hero-image-card {
+            border-radius: 16px !important;
+            box-shadow: none !important;
+            background: #000;
+            transform: none !important;
+        }
+        .hero-image-card img {
+            border-radius: 16px;
+            border: none !important;
+        }
+        .hero-image-card::after {
+            display: none;
+        }
+
+        /* Featured section — dark background */
+        .featured {
+            background: #000 !important;
+        }
+        .section-label {
+            color: var(--accent-color) !important;
+        }
+        .featured h3 {
+            color: #fff !important;
+        }
+
+        /* Work cards — dark glass */
+        .work-card {
+            background: rgba(255,255,255,0.04) !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            box-shadow: none !important;
+        }
+        .work-card:hover {
+            border-color: rgba(56, 189, 248, 0.3) !important;
+            box-shadow: 0 16px 35px rgba(56, 189, 248, 0.15) !important;
+        }
+        .work-content h4 {
+            color: #fff !important;
+        }
+        .work-content p {
+            color: rgba(255,255,255,0.65) !important;
+        }
+        .card-link {
+            color: var(--accent-color) !important;
+        }
+
+        /* CTA section stays as-is (already dark gradient) */
+
+        /* Footer */
+        footer {
+            background: #000 !important;
+            border-top: 1px solid rgba(255,255,255,0.08) !important;
+            color: rgba(255,255,255,0.6) !important;
+        }
+        footer p { color: rgba(255,255,255,0.5); }
+        .social-links a { color: rgba(255,255,255,0.7) !important; }
+        .social-links a:hover { color: var(--accent-color) !important; }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -41,7 +128,7 @@
                 </div>
             </div>
             <div class="hero-image-card">
-                <img src="images/profile.jpg" alt="Danny smiling">
+                <img src="images/danny.jpeg" alt="Mugabi Danset">
             </div>
         </div>
     </section>
