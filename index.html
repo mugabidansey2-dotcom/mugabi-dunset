@@ -32,7 +32,13 @@
             background-color: var(--accent-color) !important;
         }
 
-        /* Hero stays dark — already good */
+        /* Hero section — pure black, no gradient */
+        .hero {
+            background: #000 !important;
+        }
+        .hero::before, .hero::after {
+            display: none !important;
+        }
         
         /* Hero image — no border, blends with dark bg */
         .hero-image-card {
