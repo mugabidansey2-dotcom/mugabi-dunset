@@ -294,23 +294,22 @@
         const style = document.createElement('style');
         style.textContent = `
             h1, h2, h3, .hero-content h2 {
-                text-shadow: 0 0 10px rgba(56, 189, 248, 0.6),
-                             0 0 20px rgba(56, 189, 248, 0.4),
-                             0 0 30px rgba(56, 189, 248, 0.2);
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
+                             0 0 20px rgba(255, 255, 255, 0.15),
+                             0 0 40px rgba(255, 255, 255, 0.08);
             }
             .btn, .link-btn {
-                box-shadow: 0 0 15px rgba(56, 189, 248, 0.4),
-                           0 8px 24px rgba(56, 189, 248, 0.2);
+                box-shadow: 0 0 12px rgba(255, 255, 255, 0.3),
+                           0 4px 12px rgba(255, 255, 255, 0.1);
                 transition: box-shadow 0.3s ease, transform 0.3s ease;
             }
             .btn:hover, .link-btn:hover {
-                box-shadow: 0 0 25px rgba(56, 189, 248, 0.7),
-                           0 12px 32px rgba(56, 189, 248, 0.4);
+                box-shadow: 0 0 22px rgba(255, 255, 255, 0.55),
+                           0 8px 20px rgba(255, 255, 255, 0.25);
             }
         `;
         document.head.appendChild(style);
     }
-
     // ── 11. PAGE TRANSITION ───────────────────────────────────────────────────
     function initPageTransitions() {
         const overlay = document.getElementById('page-transition');

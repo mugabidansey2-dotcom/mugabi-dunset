@@ -375,56 +375,59 @@ footer {
     }
 }
 
-/* Buttons */
+/* Buttons — pure white/black, no gradients */
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-rose));
-    color: var(--white);
+    background: #fff;
+    color: #000;
     text-decoration: none;
     border-radius: 999px;
-    border: none;
+    border: 2px solid #fff;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 32px rgba(37, 99, 235, 0.22);
-    filter: brightness(1.04);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+    background: #000;
+    color: #fff;
+    border-color: #fff;
 }
 
 .btn-secondary {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.16);
+    background-color: #fff;
+    color: #000;
 }
 
 .link-btn {
     display: inline-block;
     padding: 8px 16px;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: #fff;
+    color: #000;
     text-decoration: none;
     border-radius: 999px;
+    border: 2px solid #fff;
     font-size: 0.9rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
     margin-right: 10px;
 }
 
 .link-btn:hover {
-    transform: translateY(-1px);
-}
-
-.link-btn:hover {
-    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    background-color: #000;
+    color: #fff;
 }
 
 /* Sections */
@@ -522,9 +525,11 @@ section h3 {
 
 /* CTA Section */
 .cta {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: #000;
     color: var(--white);
     text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .cta h3 {
@@ -600,10 +605,10 @@ section h3 {
 }
 
 .skill-item {
-    background: linear-gradient(135deg, #f8fbff 0%, var(--bg-light) 100%);
+    background: rgba(255,255,255,0.04);
     padding: 1.2rem;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255,255,255,0.08);
     animation: floatIn 0.6s ease-out both;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
