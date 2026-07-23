@@ -449,32 +449,71 @@
         `;
         document.head.appendChild(style);
     }
-    // ── 11. PAGE TRANSITION ───────────────────────────────────────────────────
+    // ── 11. PAGE TRANSITION — Range Rover loader ──────────────────────────────
     function initPageTransitions() {
-        const overlay = document.getElementById('page-transition');
+        const overlay = document.getElementById('rr-transition');
         if (!overlay) return;
 
-        // Fade out on page load
-        setTimeout(() => {
-            overlay.style.opacity = '0';
-            setTimeout(() => overlay.style.display = 'none', 500);
-        }, 300);
+        const car      = overlay.querySelector('.rr-car');
+        const road     = overlay.querySelector('.rr-road-line');
+        const label    = overlay.querySelector('.rr-label');
 
-        // Intercept internal links
-        document.querySelectorAll('a[href^="index.html"], a[href^="about.html"], a[href^="projects.html"], a[href^="contact.html"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const href = link.getAttribute('href');
-                
-                overlay.style.display = 'block';
-                overlay.style.opacity = '1';
-                
+        // ── Fade overlay out on arrival ───────────────────────────────────────
+        function hideOverlay() {
+            // Drive off to the right then fade
+            car.style.transition  = 'transform 0.55s cubic-bezier(0.55, 0, 1, 0.45)';
+            car.style.transform   = 'translateX(120vw)';
+            setTimeout(() => {
+                overlay.classList.remove('rr-active');
+                car.style.transition = '';
+                car.style.transform  = 'translateX(-120vw)'; // reset for next use
+            }, 560);
+        }
+
+        // ── Drive in, pause, then navigate ───────────────────────────────────
+        function driveAndGo(href) {
+            // Show overlay
+            overlay.classList.add('rr-active');
+            car.style.transition = '';
+            car.style.transform  = 'translateX(-120vw)';
+
+            // Small tick so browser paints the reset position first
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                // Drive to centre
+                car.style.transition = 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                car.style.transform  = 'translateX(-10vw)';
+
                 setTimeout(() => {
-                    window.location.href = href;
-                }, 500);
+                    // Brief idle at centre — wheels still spinning via CSS
+                    setTimeout(() => {
+                        // Floor it — speed off to destination
+                        car.style.transition = 'transform 0.45s cubic-bezier(0.55, 0, 1, 0.45)';
+                        car.style.transform  = 'translateX(120vw)';
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 440);
+                    }, 350);
+                }, 720);
+            }));
+        }
+
+        // ── Intercept internal nav links ──────────────────────────────────────
+        document.querySelectorAll(
+            'a[href^="index.html"], a[href^="about.html"], a[href^="projects.html"], a[href^="contact.html"]'
+        ).forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                driveAndGo(link.getAttribute('href'));
             });
         });
-    }
+
+        // ── Hide on arrival (new page load) ──────────────────────────────────
+        window.addEventListener('load', () => {
+            overlay.classList.add('rr-active');
+            car.style.transform = 'translateX(-10vw)';
+            setTimeout(hideOverlay, 200);
+        });
+    }    }
 
     // ── INIT ALL SUPERPOWERS ──────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
