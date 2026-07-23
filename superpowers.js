@@ -513,7 +513,7 @@
             car.style.transform = 'translateX(-10vw)';
             setTimeout(hideOverlay, 200);
         });
-    }    }
+    }
 
     // ── INIT ALL SUPERPOWERS ──────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
