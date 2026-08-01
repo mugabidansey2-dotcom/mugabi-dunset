@@ -88,7 +88,7 @@
                 <!-- Contact Form -->
                 <div class="contact-card">
                     <h3>Send Me a Message</h3>
-                    <form class="contact-form" action="#" method="POST">
+                    <form class="contact-form" onsubmit="return sendWhatsAppMessage(event)">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -109,22 +109,51 @@
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn btn-whatsapp">Send via WhatsApp</button>
                     </form>
+                    <p class="form-note">When you send a message, it will open WhatsApp so you can send it directly.</p>
                 </div>
 
                 <!-- Contact Info -->
                 <div class="contact-card contact-info">
                     <h3>Contact Information</h3>
-                    
+
+                    <div class="ai-helper">
+                        <div class="ai-helper-header">
+                            <h4>AI Assistant</h4>
+                            <span>Need help asking the right question? Tap a prompt.</span>
+                        </div>
+                        <div class="ai-suggestions">
+                            <button type="button" class="ai-suggestion" onclick="showAiInfo('work')">What can you build?</button>
+                            <button type="button" class="ai-suggestion" onclick="showAiInfo('process')">Tell me about your process</button>
+                            <button type="button" class="ai-suggestion" onclick="showAiInfo('skills')">What are your skills?</button>
+                            <button type="button" class="ai-suggestion" onclick="showAiInfo('projects')">Recent projects</button>
+                            <button type="button" class="ai-suggestion" onclick="showAiInfo('about')">Tell me about Mugabi</button>
+                        </div>
+                        <div id="aiResult" class="ai-result">
+                            <p>Click a prompt to get a quick intro or learn more about the work, the process, and my story.</p>
+                        </div>
+                    </div>
+
+                    <div class="highlights-panel">
+                        <h4>Quick Highlights</h4>
+                        <ul>
+                            <li>Responsive web development with modern front-end design.</li>
+                            <li>Branding, UI/UX, and polished visual storytelling.</li>
+                            <li>Fast, clean websites that match business goals.</li>
+                            <li>Projects for portfolios, businesses, and creative campaigns.</li>
+                        </ul>
+                    </div>
+
                     <div class="info-item">
                         <h4>Email</h4>
                         <p><a href="mailto:mugabidansey2@gmail.com">mugabidansey2@gmail.com</a></p>
                     </div>
 
                     <div class="info-item">
-                        <h4>Phone</h4>
-                        <p><a href="tel:+256757908094">+256 757 908094</a></p>
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/256757908094" target="_blank" rel="noopener noreferrer">+256 757 908094</a></p>
+                        <a href="https://wa.me/256757908094" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Chat on WhatsApp</a>
                     </div>
 
                     <div class="info-item">
@@ -192,6 +221,53 @@
     <script defer src="superpowers.js"></script>
     <script>
         document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        function sendWhatsAppMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const phone = '256757908094';
+            const text = `Hello, my name is ${name}%0ASubject: ${subject}%0AEmail: ${email}%0AMessage:%0A${message}`;
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+            return false;
+        }
+
+        function showAiInfo(topic) {
+            const aiResult = document.getElementById('aiResult');
+            let title = '';
+            let text = '';
+
+            switch (topic) {
+                case 'work':
+                    title = 'What I build';
+                    text = 'I build modern websites, web apps, brand identities, and interactive digital experiences with a strong focus on usability, performance, and visual clarity.';
+                    break;
+                case 'process':
+                    title = 'My process';
+                    text = 'I start by understanding your goals, then create clean design concepts, prototype ideas, and build fast, polished front-end experiences that feel easy to use.';
+                    break;
+                case 'skills':
+                    title = 'Top skills';
+                    text = 'My core skills include responsive front-end development, UI/UX design, branding, motion design, and polished web interactions that reflect professional quality.';
+                    break;
+                case 'projects':
+                    title = 'Recent projects';
+                    text = 'I work on portfolio sites, business landing pages, digital product interfaces, and visual identity systems that help creators and brands connect with their audience.';
+                    break;
+                case 'about':
+                    title = 'About Mugabi';
+                    text = 'I am Mugabi Danset, a creative developer and designer from Bugema, Uganda. I love turning ideas into polished web experiences that help businesses and creators stand out online.';
+                    break;
+                default:
+                    title = '';
+                    text = 'Click a prompt to get a quick intro or learn more about the work, the process, and my story.';
+            }
+
+            aiResult.innerHTML = `<h5>${title}</h5><p>${text}</p>`;
+        }
     </script>
 </body>
 </html>

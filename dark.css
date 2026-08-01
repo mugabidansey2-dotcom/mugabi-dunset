@@ -322,8 +322,8 @@ footer p { color: rgba(255,255,255,0.5); }
 }
 
 .info-item h4  { color: var(--accent-color) !important; }
-.info-item p   { color: rgba(255,255,255,0.65) !important; }
-.info-item a   { color: var(--accent-color) !important; }
+.info-item p   { color: #ffffff !important; }
+.info-item a   { color: #ffffff !important; }
 .info-item a:hover { color: #fff !important; }
 .info-item { border-bottom-color: rgba(255,255,255,0.08) !important; }
 
