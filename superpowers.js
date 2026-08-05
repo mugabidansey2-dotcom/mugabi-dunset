@@ -277,6 +277,84 @@
         animate();
     }
 
+    // ── 1.5 SNOWFALL BACKGROUND ─────────────────────────────────────────────
+    function initSnow() {
+        // create a dedicated canvas for snow so it can run independently
+        const snowCanvas = document.createElement('canvas');
+        snowCanvas.id = 'snow-canvas';
+        snowCanvas.style.position = 'fixed';
+        snowCanvas.style.inset = '0';
+        snowCanvas.style.pointerEvents = 'none';
+        snowCanvas.style.zIndex = '0';
+        document.body.appendChild(snowCanvas);
+
+        const ctx = snowCanvas.getContext('2d');
+        let flakes = [];
+        let width = 0;
+        let height = 0;
+        let running = true;
+
+        function resize() {
+            width = snowCanvas.width = window.innerWidth;
+            height = snowCanvas.height = window.innerHeight;
+            // number of flakes scales with area but is capped
+            const target = Math.min(Math.max(Math.floor((width * height) / 90000), 40), 220);
+            while (flakes.length < target) flakes.push(createFlake(true));
+            while (flakes.length > target) flakes.pop();
+        }
+
+        function createFlake(spawnTop) {
+            return {
+                x: Math.random() * width,
+                y: spawnTop ? Math.random() * -height * 0.5 : Math.random() * height,
+                r: Math.random() * 3 + 1,
+                vx: (Math.random() - 0.5) * 0.6,
+                vy: 0.3 + Math.random() * 0.9,
+                o: 0.6 + Math.random() * 0.4,
+                sway: Math.random() * Math.PI * 2,
+                swaySpeed: 0.002 + Math.random() * 0.006
+            };
+        }
+
+        function updateAndDraw() {
+            if (!running) return;
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255,255,255,0.9)';
+            for (let i = 0; i < flakes.length; i++) {
+                const f = flakes[i];
+                f.sway += f.swaySpeed;
+                f.x += Math.sin(f.sway) * f.vx;
+                f.y += f.vy;
+
+                // gentle horizontal drift
+                f.x += Math.cos(f.sway * 0.5) * 0.15;
+
+                if (f.y - f.r > height) {
+                    // recycle to top
+                    flakes[i] = createFlake(true);
+                    continue;
+                }
+                if (f.x < -50) f.x = width + 50;
+                if (f.x > width + 50) f.x = -50;
+
+                ctx.globalAlpha = f.o * (0.6 + (f.r / 6));
+                ctx.beginPath();
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(updateAndDraw);
+        }
+
+        window.addEventListener('resize', resize);
+        document.addEventListener('visibilitychange', () => {
+            running = !document.hidden;
+            if (running) requestAnimationFrame(updateAndDraw);
+        });
+
+        resize();
+        requestAnimationFrame(updateAndDraw);
+    }
     // ── 3. MAGNETIC BUTTONS ───────────────────────────────────────────────────
     function initMagneticButtons() {
         const buttons = document.querySelectorAll('.btn, .link-btn, .work-card, .project-card');
@@ -519,6 +597,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         initParticles();
         initCursorGlow();
+        initSnow();
         initMagneticButtons();
         init3DTilt();
         initScrollProgress();

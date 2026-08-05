@@ -3,85 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danny Tech - Portfolio</title>
-    <meta name="description" content="Mugabi Danset — creative developer and designer building thoughtful web experiences.">
-    <!-- DNS prefetch for external image CDNs -->
-    <link rel="dns-prefetch" href="//mir-s3-cdn-cf.behance.net">
-    <link rel="dns-prefetch" href="//sdac.bugemauniv.ac.ug">
-    <!-- Stylesheets -->
+    <title>My Portfolio - Welcome</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="dark.css">
-    <link rel="stylesheet" href="superpowers.css">
     <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="superpowers.css">
 </head>
 <body>
-    <!-- Superpowers scaffolding -->
-    <canvas id="particle-canvas"></canvas>
-    <div id="cursor-glow"></div>
-    <div id="scroll-progress"></div>
-    <button id="back-to-top" aria-label="Back to top">↑</button>
-    <div id="rr-transition">
-        <div class="rr-road-line"></div>
-        <div class="rr-car">
-            <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
-                <!-- Body -->
-                <rect x="50" y="60" width="240" height="45" rx="8" fill="#1a1a1a" stroke="#fff" stroke-width="2"/>
-                <!-- Cabin -->
-                <path d="M 90,60 L 115,30 L 225,30 L 250,60 Z" fill="#0a0a0a" stroke="#fff" stroke-width="2"/>
-                <!-- Windows -->
-                <path d="M 120,32 L 135,50 L 105,50 Z" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
-                <rect x="145" y="32" width="70" height="18" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
-                <path d="M 225,32 L 235,50 L 205,50 Z" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
-                <!-- Profile picture in center window -->
-                <defs>
-                    <clipPath id="windowClip">
-                        <rect x="145" y="32" width="70" height="18"/>
-                    </clipPath>
-                </defs>
-                <image href="images/danny.jpeg" x="155" y="25" width="50" height="50" clip-path="url(#windowClip)" preserveAspectRatio="xMidYMid slice"/>
-                <!-- Grille -->
-                <rect x="48" y="70" width="8" height="22" rx="2" fill="#333" stroke="#fff" stroke-width="1"/>
-                <!-- Headlights -->
-                <circle class="rr-headlight" cx="55" cy="74" r="4" fill="#ffeb3b"/>
-                <circle class="rr-headlight" cx="55" cy="95" r="4" fill="#ffeb3b"/>
-                <!-- Wheels -->
-                <g class="rr-wheel">
-                    <circle cx="105" cy="105" r="16" fill="#1a1a1a" stroke="#fff" stroke-width="3"/>
-                    <circle cx="105" cy="105" r="8" fill="#333"/>
-                    <line x1="105" y1="97" x2="105" y2="113" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="97" y1="105" x2="113" y2="105" stroke="#fff" stroke-width="1.5"/>
-                </g>
-                <g class="rr-wheel">
-                    <circle cx="235" cy="105" r="16" fill="#1a1a1a" stroke="#fff" stroke-width="3"/>
-                    <circle cx="235" cy="105" r="8" fill="#333"/>
-                    <line x1="235" y1="97" x2="235" y2="113" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="227" y1="105" x2="243" y2="105" stroke="#fff" stroke-width="1.5"/>
-                </g>
-                <!-- Mirrors -->
-                <rect x="88" y="48" width="5" height="8" rx="1" fill="#1a1a1a" stroke="#fff" stroke-width="1"/>
-                <rect x="247" y="48" width="5" height="8" rx="1" fill="#1a1a1a" stroke="#fff" stroke-width="1"/>
-                <!-- Roof rack -->
-                <rect x="120" y="26" width="100" height="3" rx="1" fill="#333" stroke="#666" stroke-width="0.5"/>
-                <!-- Details -->
-                <line x1="90" y1="60" x2="90" y2="105" stroke="#fff" stroke-width="1" opacity="0.3"/>
-                <line x1="250" y1="60" x2="250" y2="105" stroke="#fff" stroke-width="1" opacity="0.3"/>
-            </svg>
-            <div class="rr-label">Danny Tech</div>
-        </div>
-    </div>
+    <!-- Loading screen -->
     <div id="loading-screen">
-        <div class="loader-logo">DANNY TECH</div>
+        <div class="loader-logo">DANNY</div>
         <div class="loader-bar"><div class="loader-fill"></div></div>
     </div>
 
+    <!-- Particle canvas background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Glowing cursor -->
+    <div id="cursor-glow"></div>
+
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+
+    <!-- Page transition overlay -->
+    <div id="rr-transition">
+        <div class="rr-road-line"></div>
+        <div class="rr-car">
+            <svg viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="25" width="220" height="35" rx="8" fill="#fff" opacity="0.9"/>
+                <rect x="50" y="10" width="140" height="30" rx="6" fill="#fff" opacity="0.8"/>
+                <circle class="rr-wheel" cx="65" cy="62" r="14" fill="#333" stroke="#fff" stroke-width="3"/>
+                <circle cx="65" cy="62" r="5" fill="#fff"/>
+                <circle class="rr-wheel" cx="195" cy="62" r="14" fill="#333" stroke="#fff" stroke-width="3"/>
+                <circle cx="195" cy="62" r="5" fill="#fff"/>
+                <rect class="rr-headlight" x="228" y="32" width="14" height="8" rx="3" fill="#fef08a" opacity="0.9"/>
+                <ellipse class="rr-dust" cx="18" cy="58" rx="5" ry="3" fill="rgba(255,255,255,0.25)"/>
+                <ellipse class="rr-dust" cx="10" cy="52" rx="4" ry="2" fill="rgba(255,255,255,0.18)"/>
+                <ellipse class="rr-dust" cx="22" cy="50" rx="3" ry="2" fill="rgba(255,255,255,0.12)"/>
+            </svg>
+            <span class="rr-label">Loading…</span>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="index.html" class="logo-link">
-                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image" width="42" height="42">
-                    <span>Danny Tech</span>
-                </a>
+                <h1>Danny</h1>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -94,57 +64,33 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-layout">
-            <div class="hero-image-card">
-                <img src="images/danset.jpg" alt="Mugabi Danset" width="520" height="520">
-            </div>
-            <div class="hero-content">
-                <p class="eyebrow animate-letters">Hello, I'm Danny</p>
-                <h2 class="animate-letters" data-scramble>
-                    <span class="hero-line">Building thoughtful web experiences</span>
-                    <span class="hero-line">that help ideas grow.</span>
-                </h2>
-                <p>I create modern websites and digital products with a focus on clean design and clear user journeys.</p>
-                <div class="hero-actions">
-                    <a href="about.html" class="btn">Learn More About Me</a>
-                    <a href="projects.html" class="btn btn-secondary">See My Projects</a>
-                </div>
-            </div>
+        <div class="hero-content">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Full-stack developer & creative problem solver</p>
+            <a href="about.html" class="btn">Learn More About Me</a>
         </div>
     </section>
 
     <!-- Featured Work Section -->
     <section class="featured">
         <div class="container">
-            <div class="section-heading">
-                <p class="section-label">Featured Work</p>
-                <h3>Selected projects that reflect my creative and technical style.</h3>
-            </div>
+            <h3>Featured Work</h3>
             <div class="work-grid">
-                <a class="work-card" href="https://www.behance.net/gallery/251337029/20-days" target="_blank" rel="noopener noreferrer">
-                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/041b02251337029.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="20 Days Behance project cover" width="808" height="631" loading="lazy">
-                    <div class="work-content">
-                        <h4>20 Days</h4>
-                        <p>Visual concept work that highlights clarity, mood, and thoughtful composition.</p>
-                        <span class="card-link">View on Behance</span>
-                    </div>
-                </a>
-                <a class="work-card" href="https://www.behance.net/gallery/251335811/debate-tryouts" target="_blank" rel="noopener noreferrer">
-                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/841d81251335811.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg" alt="Debate Tryouts Behance project cover" width="808" height="631" loading="lazy">
-                    <div class="work-content">
-                        <h4>Debate Tryouts</h4>
-                        <p>An event-focused visual design piece with strong storytelling and layout choices.</p>
-                        <span class="card-link">View on Behance</span>
-                    </div>
-                </a>
-                <a class="work-card" href="https://www.behance.net/gallery/250698605/my-works" target="_blank" rel="noopener noreferrer">
-                    <img class="work-image" src="https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/5de8d4250698605.Y3JvcCwzMDAwLDIzNDYsMCwzMjY.jpg" alt="My Works Behance project cover" width="808" height="631" loading="lazy">
-                    <div class="work-content">
-                        <h4>My Works</h4>
-                        <p>A curated look at my broader creative range, from branding to visual storytelling.</p>
-                        <span class="card-link">View on Behance</span>
-                    </div>
-                </a>
+                <div class="work-card">
+                    <div class="work-image">Project 1</div>
+                    <h4>Project Title</h4>
+                    <p>Brief description of your first project goes here.</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">Project 2</div>
+                    <h4>Project Title</h4>
+                    <p>Brief description of your second project goes here.</p>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">Project 3</div>
+                    <h4>Project Title</h4>
+                    <p>Brief description of your third project goes here.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -160,39 +106,15 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; <span id="footer-year"></span> Danny Tech. All rights reserved.</p>
+            <p>&copy; 2024 Danny. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/mugabidansey2-dotcom" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/mugabi-dunset-696808397/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
             </div>
         </div>
     </footer>
-
-    <script defer src="superpowers.js"></script>
-    <script defer src="intro.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Letter animation
-            document.querySelectorAll('.animate-letters').forEach((element) => {
-                const lines = element.querySelectorAll('.hero-line');
-                const animateText = (target) => {
-                    const text = target.textContent.trim();
-                    target.textContent = '';
-                    text.split('').forEach((char, index) => {
-                        const span = document.createElement('span');
-                        span.textContent = char === ' ' ? '\u00A0' : char;
-                        span.className = 'letter-fall';
-                        span.style.animationDelay = `${index * 0.045}s`;
-                        target.appendChild(span);
-                    });
-                };
-                if (lines.length) { lines.forEach(animateText); return; }
-                animateText(element);
-            });
-            // Dynamic year
-            const yearEl = document.getElementById('footer-year');
-            if (yearEl) yearEl.textContent = new Date().getFullYear();
-        });
-    </script>
+    <script src="intro.js"></script>
+    <script src="superpowers.js"></script>
 </body>
 </html>

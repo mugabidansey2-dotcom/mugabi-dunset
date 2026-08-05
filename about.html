@@ -3,70 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Danny Tech</title>
-    <meta name="description" content="About Mugabi Danset — creative developer and designer building meaningful digital experiences.">
+    <title>About Me - My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="dark.css">
+    <link rel="stylesheet" href="intro.css">
     <link rel="stylesheet" href="superpowers.css">
 </head>
 <body>
-    <!-- Superpowers scaffolding -->
-    <canvas id="particle-canvas"></canvas>
-    <div id="cursor-glow"></div>
-    <div id="scroll-progress"></div>
-    <button id="back-to-top" aria-label="Back to top">↑</button>
-    <div id="rr-transition">
-        <div class="rr-road-line"></div>
-        <div class="rr-car">
-            <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
-                <rect x="50" y="60" width="240" height="45" rx="8" fill="#1a1a1a" stroke="#fff" stroke-width="2"/>
-                <path d="M 90,60 L 115,30 L 225,30 L 250,60 Z" fill="#0a0a0a" stroke="#fff" stroke-width="2"/>
-                <path d="M 120,32 L 135,50 L 105,50 Z" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
-                <rect x="145" y="32" width="70" height="18" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
-                <path d="M 225,32 L 235,50 L 205,50 Z" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
-                <defs>
-                    <clipPath id="windowClip"><rect x="145" y="32" width="70" height="18"/></clipPath>
-                </defs>
-                <image href="images/danny.jpeg" x="155" y="25" width="50" height="50" clip-path="url(#windowClip)" preserveAspectRatio="xMidYMid slice"/>
-                <rect x="48" y="70" width="8" height="22" rx="2" fill="#333" stroke="#fff" stroke-width="1"/>
-                <circle class="rr-headlight" cx="55" cy="74" r="4" fill="#ffeb3b"/>
-                <circle class="rr-headlight" cx="55" cy="95" r="4" fill="#ffeb3b"/>
-                <g class="rr-wheel">
-                    <circle cx="105" cy="105" r="16" fill="#1a1a1a" stroke="#fff" stroke-width="3"/>
-                    <circle cx="105" cy="105" r="8" fill="#333"/>
-                    <line x1="105" y1="97" x2="105" y2="113" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="97" y1="105" x2="113" y2="105" stroke="#fff" stroke-width="1.5"/>
-                </g>
-                <g class="rr-wheel">
-                    <circle cx="235" cy="105" r="16" fill="#1a1a1a" stroke="#fff" stroke-width="3"/>
-                    <circle cx="235" cy="105" r="8" fill="#333"/>
-                    <line x1="235" y1="97" x2="235" y2="113" stroke="#fff" stroke-width="1.5"/>
-                    <line x1="227" y1="105" x2="243" y2="105" stroke="#fff" stroke-width="1.5"/>
-                </g>
-                <rect x="88" y="48" width="5" height="8" rx="1" fill="#1a1a1a" stroke="#fff" stroke-width="1"/>
-                <rect x="247" y="48" width="5" height="8" rx="1" fill="#1a1a1a" stroke="#fff" stroke-width="1"/>
-                <rect x="120" y="26" width="100" height="3" rx="1" fill="#333" stroke="#666" stroke-width="0.5"/>
-                <line x1="90" y1="60" x2="90" y2="105" stroke="#fff" stroke-width="1" opacity="0.3"/>
-                <line x1="250" y1="60" x2="250" y2="105" stroke="#fff" stroke-width="1" opacity="0.3"/>
-            </svg>
-            <div class="rr-label">Danny Tech</div>
-        </div>
-    </div>
+    <!-- Loading screen -->
     <div id="loading-screen">
-        <div class="loader-logo">DANNY TECH</div>
+        <div class="loader-logo">DANNY</div>
         <div class="loader-bar"><div class="loader-fill"></div></div>
     </div>
 
+    <!-- Particle canvas background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Glowing cursor -->
+    <div id="cursor-glow"></div>
+
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+
+    <!-- Page transition overlay -->
+    <div id="rr-transition">
+        <div class="rr-road-line"></div>
+        <div class="rr-car">
+            <svg viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="25" width="220" height="35" rx="8" fill="#fff" opacity="0.9"/>
+                <rect x="50" y="10" width="140" height="30" rx="6" fill="#fff" opacity="0.8"/>
+                <circle class="rr-wheel" cx="65" cy="62" r="14" fill="#333" stroke="#fff" stroke-width="3"/>
+                <circle cx="65" cy="62" r="5" fill="#fff"/>
+                <circle class="rr-wheel" cx="195" cy="62" r="14" fill="#333" stroke="#fff" stroke-width="3"/>
+                <circle cx="195" cy="62" r="5" fill="#fff"/>
+                <rect class="rr-headlight" x="228" y="32" width="14" height="8" rx="3" fill="#fef08a" opacity="0.9"/>
+                <ellipse class="rr-dust" cx="18" cy="58" rx="5" ry="3" fill="rgba(255,255,255,0.25)"/>
+                <ellipse class="rr-dust" cx="10" cy="52" rx="4" ry="2" fill="rgba(255,255,255,0.18)"/>
+                <ellipse class="rr-dust" cx="22" cy="50" rx="3" ry="2" fill="rgba(255,255,255,0.12)"/>
+            </svg>
+            <span class="rr-label">Loading…</span>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="index.html" class="logo-link">
-                    <img src="images/profile.jpg" alt="Danny Tech logo" class="logo-image" width="42" height="42">
-                    <span>Danny Tech</span>
-                </a>
+                <h1>Danny</h1>
             </div>
-            <ul class="nav-links" aria-label="Main navigation">
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -78,89 +65,52 @@
     <!-- About Section -->
     <section class="about-content">
         <div class="container">
-            <div class="section-heading about-heading reveal">
-                <p class="section-label">About Me</p>
-                <h2 id="about-heading-text"></h2>
-            </div>
-
+            <h2>About Me</h2>
+            
             <div class="about-grid">
-                <div class="about-text reveal-left">
-                    <h3 data-scramble>Who I Am</h3>
-                    <p>Hello! I'm Mugabi Danset, a creative developer and designer with a passion for building websites, visual identities, and digital products that solve real problems.</p>
-                    <p>I enjoy combining thoughtful design with clean technical execution, whether I'm crafting a user-friendly website or shaping a visual concept for a brand or campaign.</p>
-                    <p>My work sits at the intersection of technology, design, and storytelling, and I'm always excited to turn ideas into polished digital experiences.</p>
+                <div class="about-text">
+                    <h3>Who I Am</h3>
+                    <p>Hello! I'm Danny, a passionate developer with expertise in web development and software engineering. I love creating beautiful, functional websites and applications that solve real-world problems.</p>
+                    <p>With a strong foundation in multiple programming languages and frameworks, I'm committed to writing clean, efficient code and staying current with the latest technologies.</p>
                 </div>
-                <div class="about-image reveal-right" data-parallax="0.08">
-                    <div class="photo-slideshow">
-                        <img src="images/danny.jpeg" alt="Mugabi Danset, developer and designer" class="about-photo slide active" width="520" height="640" loading="lazy">
-                    </div>
+                <div class="about-image">
+                    <div class="placeholder">Your Photo</div>
                 </div>
             </div>
 
             <!-- Skills Section -->
-            <div class="about-section-card reveal">
-                <h3>My Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h4>Frontend</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML</span>
-                            <span class="skill-tag">CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <h4>Backend</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Databases</span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <h4>Tools</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">APIs</span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <h4>Design</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">UI/UX</span>
-                            <span class="skill-tag">Responsive Design</span>
-                            <span class="skill-tag">Figma</span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <h4>Streaming</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">OBS</span>
-                            <span class="skill-tag">Live Streaming</span>
-                            <span class="skill-tag">AV Matrix</span>
-                        </div>
-                    </div>
+            <h3>My Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>Frontend</h4>
+                    <p>HTML, CSS, JavaScript, React</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Backend</h4>
+                    <p>Node.js, Java, Python, Databases</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Tools</h4>
+                    <p>Git, VS Code, Docker, APIs</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Design</h4>
+                    <p>UI/UX, Responsive Design, Figma</p>
                 </div>
             </div>
 
             <!-- Experience Timeline -->
-            <div class="about-section-card reveal">
-                <h3>Experience</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>Creative &amp; Web Development Work</h4>
-                        <p class="timeline-date" id="date-present">2023 – Present</p>
-                        <p>Building responsive websites, design-led projects, and digital solutions with a strong focus on user experience and visual quality.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>Design &amp; Development Projects</h4>
-                        <p class="timeline-date">2022 – 2023</p>
-                        <p>Developed and refined a range of projects across web, branding, and visual communication, strengthening both technical and creative skills.</p>
-                    </div>
+            <h3>Experience</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Job Title</h4>
+                    <p class="timeline-date">2023 - Present</p>
+                    <p>Company Name - Description of your role and responsibilities</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Previous Job</h4>
+                    <p class="timeline-date">2022 - 2023</p>
+                    <p>Previous Company - Description of your role and responsibilities</p>
                 </div>
             </div>
         </div>
@@ -169,73 +119,14 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; <span id="footer-year"></span> Danny Tech. All rights reserved.</p>
+            <p>&copy; 2024 Danny. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/mugabidansey2-dotcom" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/mugabi-dunset-696808397/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
             </div>
         </div>
     </footer>
-
-    <script defer src="superpowers.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-            const presentEl = document.getElementById('date-present');
-            if (presentEl) presentEl.textContent = `2023 \u2013 ${new Date().getFullYear()}`;
-
-            // Typing animation
-            function typeText(el, text, speed = 38) {
-                let i = 0;
-                const cursor = document.createElement('span');
-                cursor.className = 'cursor';
-                el.appendChild(cursor);
-                const interval = setInterval(() => {
-                    el.insertBefore(document.createTextNode(text[i]), cursor);
-                    if (++i >= text.length) { clearInterval(interval); setTimeout(() => cursor.remove(), 1800); }
-                }, speed);
-            }
-
-            // Scroll reveal
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    const el = entry.target;
-                    el.classList.contains('timeline-item') ? el.classList.add('tl-visible') : el.classList.add('visible');
-                    if (el.classList.contains('reveal')) {
-                        el.querySelectorAll('.skill-tag').forEach((tag, i) =>
-                            setTimeout(() => tag.classList.add('tag-visible'), i * 60));
-                    }
-                    observer.unobserve(el);
-                });
-            }, { threshold: 0.15 });
-            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .timeline-item')
-                    .forEach(el => observer.observe(el));
-
-            // Heading typing
-            const headingEl = document.getElementById('about-heading-text');
-            const headingObs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        typeText(headingEl, 'I build digital experiences that are both meaningful and practical.');
-                        headingObs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            headingObs.observe(headingEl);
-
-            // Slideshow
-            const slides = document.querySelectorAll('.photo-slideshow .slide');
-            if (slides.length > 1) {
-                let current = 0;
-                setInterval(() => {
-                    slides[current].classList.remove('active');
-                    current = (current + 1) % slides.length;
-                    slides[current].classList.add('active');
-                }, 4000);
-            }
-        });
-    </script>
+    <script src="superpowers.js"></script>
 </body>
 </html>
