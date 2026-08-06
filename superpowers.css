@@ -274,11 +274,20 @@ button:hover ~ #cursor-glow {
     #cursor-glow { display: none; }
 }
 
+@media (max-width: 768px) {
+    .mustang-img { width: 320px !important; }
+    .rr-car { bottom: calc(50% - 90px); }
+    .rr-road-line { bottom: calc(50% - 42px); }
+}
+
 @media (max-width: 480px) {
     #back-to-top {
-        bottom: 1.2rem;
-        right: 1.2rem;
-        width: 42px;
-        height: 42px;
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
     }
+    .mustang-img { width: 240px !important; }
+    .rr-car { bottom: calc(50% - 68px); }
+    .rr-road-line { bottom: calc(50% - 34px); }
 }

@@ -378,3 +378,27 @@ footer p { color: rgba(255,255,255,0.5); }
     background-color: var(--primary-color) !important;
     color: #ffffff !important;
 }
+
+/* ── Mobile responsive overrides ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .about-content h2,
+    .projects-content h2,
+    .contact-content h2 {
+        font-size: 1.8rem !important;
+    }
+    .project-description { font-size: 0.9rem !important; }
+}
+
+@media (max-width: 480px) {
+    .nav-links li a {
+        padding: 0.28rem 0.6rem !important;
+        font-size: 0.76rem !important;
+    }
+    .about-content h2,
+    .projects-content h2,
+    .contact-content h2 {
+        font-size: 1.5rem !important;
+    }
+    .skill-item h4 { font-size: 1rem !important; }
+    .timeline-item h4 { font-size: 1rem !important; }
+}
