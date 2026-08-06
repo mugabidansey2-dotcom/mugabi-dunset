@@ -527,39 +527,98 @@
         `;
         document.head.appendChild(style);
     }
-    // ── 11. PAGE TRANSITION — Mustang loader ──────────────────────────────────
+    // ── 11. PAGE TRANSITION — Mustang loader with canvas smoke ────────────────
     function initPageTransitions() {
         const overlay = document.getElementById('rr-transition');
         if (!overlay) return;
 
         const car   = overlay.querySelector('.rr-car');
-        const label = overlay.querySelector('.rr-label');
         const img   = overlay.querySelector('.mustang-img');
 
-        // ── Add smoke puffs ───────────────────────────────────────────────────
-        for (let i = 0; i < 3; i++) {
-            const smoke = document.createElement('div');
-            smoke.className = 'rr-smoke';
-            car.appendChild(smoke);
+        // ── Canvas smoke engine ───────────────────────────────────────────────
+        const smokeCanvas = document.createElement('canvas');
+        smokeCanvas.style.cssText = `
+            position: absolute;
+            bottom: 0;
+            left: -120px;
+            width: 160px;
+            height: 120px;
+            pointer-events: none;
+            z-index: 10;
+        `;
+        car.appendChild(smokeCanvas);
+
+        const sc  = smokeCanvas.getContext('2d');
+        smokeCanvas.width  = 160;
+        smokeCanvas.height = 120;
+
+        let particles = [];
+        let smokeRunning = false;
+        let smokeRaf;
+
+        function SmokeParticle() {
+            // exhaust exits from bottom-left rear of the Mustang
+            this.x    = 30 + Math.random() * 10;
+            this.y    = 88 + Math.random() * 6;
+            this.vx   = -(0.4 + Math.random() * 0.6);  // drift left
+            this.vy   = -(0.3 + Math.random() * 0.5);  // drift upward
+            this.r    = 4 + Math.random() * 5;
+            this.grow = 0.25 + Math.random() * 0.35;
+            this.life = 1.0;
+            this.fade = 0.012 + Math.random() * 0.014;
+            // grey/white smoke tones
+            const tone = Math.floor(180 + Math.random() * 60);
+            this.color = `rgb(${tone},${tone},${tone})`;
         }
 
-        // ── Spin SVG wheels once the img element is loaded ────────────────────
-        function spinWheels() {
-            if (!img) return;
-            // Access the SVG document inside the <img> — not possible directly.
-            // Instead we animate via CSS filter + a keyframe on the img itself
-            // to give the illusion of wheel motion (blur + speed lines).
-            img.style.animation = 'none';
+        function spawnSmoke() {
+            // 2-3 new particles per frame
+            const count = 2 + Math.floor(Math.random() * 2);
+            for (let i = 0; i < count; i++) {
+                particles.push(new SmokeParticle());
+            }
         }
+
+        function tickSmoke() {
+            sc.clearRect(0, 0, smokeCanvas.width, smokeCanvas.height);
+
+            if (smokeRunning) spawnSmoke();
+
+            // cap particle count
+            if (particles.length > 120) particles.splice(0, particles.length - 120);
+
+            particles = particles.filter(p => p.life > 0);
+
+            particles.forEach(p => {
+                p.x  += p.vx;
+                p.y  += p.vy;
+                p.r  += p.grow;
+                p.life -= p.fade;
+
+                sc.beginPath();
+                sc.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                sc.fillStyle = p.color;
+                sc.globalAlpha = Math.max(0, p.life * 0.45);
+                sc.fill();
+            });
+            sc.globalAlpha = 1;
+
+            smokeRaf = requestAnimationFrame(tickSmoke);
+        }
+
+        // Start the smoke render loop immediately (particles only spawn when smokeRunning=true)
+        tickSmoke();
 
         // ── Fade overlay out on arrival ───────────────────────────────────────
         function hideOverlay() {
-            car.style.transition  = 'transform 0.55s cubic-bezier(0.55, 0, 1, 0.45)';
-            car.style.transform   = 'translateX(120vw)';
+            smokeRunning = false;
+            car.style.transition = 'transform 0.55s cubic-bezier(0.55, 0, 1, 0.45)';
+            car.style.transform  = 'translateX(120vw)';
             setTimeout(() => {
                 overlay.classList.remove('rr-active');
                 car.style.transition = '';
                 car.style.transform  = 'translateX(-120vw)';
+                particles = [];
             }, 560);
         }
 
@@ -568,6 +627,8 @@
             overlay.classList.add('rr-active');
             car.style.transition = '';
             car.style.transform  = 'translateX(-120vw)';
+            smokeRunning = false;
+            particles = [];
 
             requestAnimationFrame(() => requestAnimationFrame(() => {
                 // Drive to centre
@@ -575,15 +636,16 @@
                 car.style.transform  = 'translateX(-10vw)';
 
                 setTimeout(() => {
-                    // Brief idle
+                    // Car is idling — start continuous smoke
+                    smokeRunning = true;
+
                     setTimeout(() => {
-                        // Rev and go
+                        // Rev and launch — smoke burst then clear
                         car.style.transition = 'transform 0.45s cubic-bezier(0.55, 0, 1, 0.45)';
                         car.style.transform  = 'translateX(120vw)';
-                        setTimeout(() => {
-                            window.location.href = href;
-                        }, 440);
-                    }, 350);
+                        smokeRunning = false;
+                        setTimeout(() => { window.location.href = href; }, 440);
+                    }, 380);
                 }, 720);
             }));
         }
@@ -598,12 +660,100 @@
             });
         });
 
-        // ── Hide on arrival ───────────────────────────────────────────────────
+        // ── Hide on page arrival — smoke while car is visible ─────────────────
         window.addEventListener('load', () => {
             overlay.classList.add('rr-active');
             car.style.transform = 'translateX(-10vw)';
-            setTimeout(hideOverlay, 200);
+            smokeRunning = true;
+            setTimeout(() => {
+                smokeRunning = false;
+                hideOverlay();
+            }, 800);
         });
+    }
+
+    // ── 12. SITE-WIDE SMOKE BACKGROUND ───────────────────────────────────────
+    function initSiteSmoke() {
+        const canvas = document.createElement('canvas');
+        canvas.id = 'smoke-canvas';
+        canvas.style.cssText = `
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        `;
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let W = canvas.width  = window.innerWidth;
+        let H = canvas.height = window.innerHeight;
+        let running = true;
+
+        window.addEventListener('resize', () => {
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        });
+        document.addEventListener('visibilitychange', () => {
+            running = !document.hidden;
+            if (running) requestAnimationFrame(tick);
+        });
+
+        // ── Smoke blob class ──────────────────────────────────────────────────
+        function SmokeBlob() {
+            this.reset(true);
+        }
+        SmokeBlob.prototype.reset = function(init) {
+            this.x    = Math.random() * W;
+            this.y    = init ? Math.random() * H : H + 60;
+            this.r    = 60 + Math.random() * 120;
+            this.vx   = (Math.random() - 0.5) * 0.35;
+            this.vy   = -(0.18 + Math.random() * 0.28);
+            this.life = 0;
+            this.maxLife = 220 + Math.random() * 180;
+            const tone = Math.floor(200 + Math.random() * 55);
+            this.r1 = tone; this.g1 = tone; this.b1 = tone;
+        };
+        SmokeBlob.prototype.update = function() {
+            this.x += this.vx + Math.sin(this.life * 0.018) * 0.4;
+            this.y += this.vy;
+            this.life++;
+            if (this.life > this.maxLife || this.y < -this.r * 2) this.reset(false);
+        };
+        SmokeBlob.prototype.draw = function() {
+            const progress = this.life / this.maxLife;
+            // fade in then fade out
+            const alpha = progress < 0.15
+                ? (progress / 0.15) * 0.13
+                : progress > 0.75
+                    ? ((1 - progress) / 0.25) * 0.13
+                    : 0.13;
+
+            const grad = ctx.createRadialGradient(
+                this.x, this.y, 0,
+                this.x, this.y, this.r
+            );
+            grad.addColorStop(0,   `rgba(${this.r1},${this.g1},${this.b1},${alpha})`);
+            grad.addColorStop(0.5, `rgba(${this.r1},${this.g1},${this.b1},${alpha * 0.5})`);
+            grad.addColorStop(1,   `rgba(${this.r1},${this.g1},${this.b1},0)`);
+
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = grad;
+            ctx.fill();
+        };
+
+        // Spawn enough blobs to fill the screen
+        const COUNT = Math.min(Math.floor((W * H) / 28000) + 14, 45);
+        const blobs = Array.from({ length: COUNT }, () => new SmokeBlob());
+
+        function tick() {
+            if (!running) return;
+            ctx.clearRect(0, 0, W, H);
+            blobs.forEach(b => { b.update(); b.draw(); });
+            requestAnimationFrame(tick);
+        }
+        tick();
     }
 
     // ── INIT ALL SUPERPOWERS ──────────────────────────────────────────────────
@@ -611,6 +761,7 @@
         initParticles();
         initCursorGlow();
         initSnow();
+        initSiteSmoke();
         initMagneticButtons();
         init3DTilt();
         initScrollProgress();
