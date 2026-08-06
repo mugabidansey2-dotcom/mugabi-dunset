@@ -90,7 +90,19 @@ body {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     padding: 100px 20px;
-    text-align: center;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.hero-content {
+    flex: 1;
 }
 
 .hero-content h2 {
@@ -103,6 +115,22 @@ body {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+}
+
+.hero-image {
+    flex-shrink: 0;
+    width: 320px;
+    height: 320px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: block;
 }
 
 /* Buttons */
@@ -256,15 +284,23 @@ section h3 {
     line-height: 1.8;
 }
 
-.placeholder {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: var(--white);
-    height: 300px;
-    border-radius: 8px;
+.about-image {
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .skills-grid {
@@ -358,6 +394,25 @@ section h3 {
     justify-content: center;
     font-weight: 600;
     font-size: 1.1rem;
+}
+
+.project-image-wrap {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.project-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image-wrap img {
+    transform: scale(1.04);
 }
 
 .project-info {
@@ -497,7 +552,35 @@ section h3 {
     color: var(--white);
 }
 
-/* Footer */
+/* WhatsApp form note */
+.whatsapp-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+}
+
+/* WhatsApp send button */
+.whatsapp-btn {
+    background-color: #25D366 !important;
+    color: #fff !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.whatsapp-btn:hover {
+    background-color: #1ebe5d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
 footer {
     background-color: var(--text-dark);
     color: var(--white);
@@ -540,6 +623,16 @@ footer .container {
 
     .hero-content p {
         font-size: 1.1rem;
+    }
+
+    .hero-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 220px;
+        height: 220px;
     }
 
     .about-grid {
@@ -588,6 +681,11 @@ footer .container {
 
     .hero {
         padding: 50px 20px;
+    }
+
+    .hero-image {
+        width: 160px;
+        height: 160px;
     }
 
     .project-links {

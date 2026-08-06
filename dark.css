@@ -113,11 +113,17 @@ footer p { color: rgba(255,255,255,0.5); }
 .about-photo {
     border: none !important;
     box-shadow: none !important;
-    border-radius: 16px;
+    border-radius: 0 !important;
     width: 100%;
     object-fit: cover;
+    display: block;
+    background: #000;
 }
-.about-image { background: #000; }
+.about-image {
+    background: #000 !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
 
 .about-section-card {
     background: rgba(255,255,255,0.04) !important;
@@ -293,46 +299,58 @@ footer p { color: rgba(255,255,255,0.5); }
 
 /* ── Contact page ────────────────────────────────────────────────────────── */
 .contact-content {
-    background: #000 !important;
+    background: #ffffff !important;
     padding-top: 3rem;
 }
-.contact-heading h2 { color: #fff !important; }
+.contact-content h2,
+.contact-content h3 {
+    color: #111111 !important;
+}
+.section-intro {
+    color: #444444 !important;
+}
+.contact-heading h2 { color: #111111 !important; }
 
 .contact-card {
-    background: rgba(255,255,255,0.04) !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    box-shadow: none !important;
+    background: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
 }
-.contact-card h3 { color: #fff !important; }
+.contact-card h3 { color: #111111 !important; }
 
-.form-group label { color: rgba(255,255,255,0.85) !important; }
+.contact-form {
+    background: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.form-group label { color: #1f2937 !important; }
 .form-group input,
 .form-group textarea {
-    background-color: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
-    color: #fff !important;
+    background-color: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #111111 !important;
 }
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: rgba(255,255,255,0.4); }
+.form-group textarea::placeholder { color: #9ca3af !important; }
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--accent-color) !important;
-    box-shadow: 0 0 0 3px rgba(56,189,248,0.15) !important;
-    background-color: rgba(255,255,255,0.08) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
+    background-color: #ffffff !important;
 }
 
-.info-item h4  { color: var(--accent-color) !important; }
-.info-item p   { color: #ffffff !important; }
-.info-item a   { color: #ffffff !important; }
-.info-item a:hover { color: #fff !important; }
-.info-item { border-bottom-color: rgba(255,255,255,0.08) !important; }
+.info-item h4  { color: var(--primary-color) !important; }
+.info-item p   { color: #374151 !important; }
+.info-item a   { color: var(--primary-color) !important; }
+.info-item a:hover { color: var(--secondary-color) !important; }
+.info-item { border-bottom-color: #e5e7eb !important; }
 
 .social-follow a {
-    background-color: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    color: var(--accent-color) !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    color: var(--primary-color) !important;
 }
 .social-follow a:hover {
-    background-color: var(--accent-color) !important;
-    color: #000 !important;
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
 }
