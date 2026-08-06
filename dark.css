@@ -127,6 +127,8 @@ footer p { color: rgba(255,255,255,0.5); }
     background: #000 !important;
     padding-top: 3rem;
 }
+.about-content h2,
+.about-content h3,
 .about-heading h2,
 .about-text h3 {
     color: #fff !important;
