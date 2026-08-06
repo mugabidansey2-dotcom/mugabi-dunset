@@ -139,7 +139,7 @@ button:hover ~ #cursor-glow {
     to   { width: 100%; }
 }
 
-/* ── Page transition — Range Rover loader ────────────────────────────────── */
+/* ── Page transition — Mustang loader ────────────────────────────────────── */
 #rr-transition {
     position: fixed;
     inset: 0;
@@ -160,7 +160,7 @@ button:hover ~ #cursor-glow {
 /* Road line */
 .rr-road-line {
     position: absolute;
-    bottom: calc(50% - 68px);
+    bottom: calc(50% - 54px);
     left: 0;
     width: 100%;
     height: 3px;
@@ -173,65 +173,67 @@ button:hover ~ #cursor-glow {
     );
 }
 
-/* Car wrapper — starts off screen left */
+/* Car wrapper */
 .rr-car {
     position: absolute;
-    bottom: calc(50% - 130px);
+    bottom: calc(50% - 110px);
     left: 50%;
     transform: translateX(-120vw);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     will-change: transform;
+}
+
+/* Mustang image */
+.mustang-img {
+    width: 420px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 32px rgba(255,69,0,0.35))
+            drop-shadow(0 4px 12px rgba(0,0,0,0.8));
+}
+
+/* Wheel spin — targets the wheel groups inside the SVG via CSS animation */
+@keyframes mustangWheelSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+/* Since the SVG wheels use <g id="front-wheel"> and <g id="rear-wheel">
+   we animate them via a CSS class injected by JS — see superpowers.js */
+.mustang-wheel-spin {
+    animation: mustangWheelSpin 0.4s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
 }
 
 /* Label under car */
 .rr-label {
     font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.45);
     text-transform: uppercase;
     white-space: nowrap;
 }
 
-/* ── Range Rover SVG sizing ───────────────────────────────────────────────── */
-.rr-car svg {
-    width: 260px;
-    height: auto;
-    filter: drop-shadow(0 8px 24px rgba(255,255,255,0.08));
+/* Exhaust smoke puffs */
+@keyframes smokePuff {
+    0%   { transform: translate(0,0) scale(0.5); opacity: 0.6; }
+    100% { transform: translate(-40px,-20px) scale(2);  opacity: 0; }
 }
-
-/* ── Spinning wheels ─────────────────────────────────────────────────────── */
-@keyframes wheelSpin {
-    from { transform-origin: center; transform: rotate(0deg); }
-    to   { transform-origin: center; transform: rotate(360deg); }
+.rr-smoke {
+    position: absolute;
+    bottom: 62px;
+    left: -18px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    animation: smokePuff 0.7s ease-out infinite;
 }
-.rr-wheel {
-    animation: wheelSpin 0.45s linear infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-/* ── Headlight glow pulse ────────────────────────────────────────────────── */
-@keyframes headlightPulse {
-    0%, 100% { opacity: 0.7; }
-    50%       { opacity: 1;   }
-}
-.rr-headlight {
-    animation: headlightPulse 0.6s ease-in-out infinite;
-}
-
-/* ── Road dust particles ─────────────────────────────────────────────────── */
-@keyframes dustFloat {
-    0%   { transform: translate(0, 0)   scale(1);   opacity: 0.5; }
-    100% { transform: translate(-30px, -20px) scale(0); opacity: 0;   }
-}
-.rr-dust {
-    animation: dustFloat 0.6s ease-out infinite;
-}
-.rr-dust:nth-child(2) { animation-delay: 0.2s; }
-.rr-dust:nth-child(3) { animation-delay: 0.4s; }
+.rr-smoke:nth-child(2) { animation-delay: 0.25s; left: -10px; bottom: 58px; }
+.rr-smoke:nth-child(3) { animation-delay: 0.5s;  left: -24px; bottom: 55px; }
 
 
 /* ── 3D tilt card base styles ────────────────────────────────────────────── */

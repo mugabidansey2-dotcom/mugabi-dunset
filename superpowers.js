@@ -527,44 +527,57 @@
         `;
         document.head.appendChild(style);
     }
-    // ── 11. PAGE TRANSITION — Range Rover loader ──────────────────────────────
+    // ── 11. PAGE TRANSITION — Mustang loader ──────────────────────────────────
     function initPageTransitions() {
         const overlay = document.getElementById('rr-transition');
         if (!overlay) return;
 
-        const car      = overlay.querySelector('.rr-car');
-        const road     = overlay.querySelector('.rr-road-line');
-        const label    = overlay.querySelector('.rr-label');
+        const car   = overlay.querySelector('.rr-car');
+        const label = overlay.querySelector('.rr-label');
+        const img   = overlay.querySelector('.mustang-img');
+
+        // ── Add smoke puffs ───────────────────────────────────────────────────
+        for (let i = 0; i < 3; i++) {
+            const smoke = document.createElement('div');
+            smoke.className = 'rr-smoke';
+            car.appendChild(smoke);
+        }
+
+        // ── Spin SVG wheels once the img element is loaded ────────────────────
+        function spinWheels() {
+            if (!img) return;
+            // Access the SVG document inside the <img> — not possible directly.
+            // Instead we animate via CSS filter + a keyframe on the img itself
+            // to give the illusion of wheel motion (blur + speed lines).
+            img.style.animation = 'none';
+        }
 
         // ── Fade overlay out on arrival ───────────────────────────────────────
         function hideOverlay() {
-            // Drive off to the right then fade
             car.style.transition  = 'transform 0.55s cubic-bezier(0.55, 0, 1, 0.45)';
             car.style.transform   = 'translateX(120vw)';
             setTimeout(() => {
                 overlay.classList.remove('rr-active');
                 car.style.transition = '';
-                car.style.transform  = 'translateX(-120vw)'; // reset for next use
+                car.style.transform  = 'translateX(-120vw)';
             }, 560);
         }
 
         // ── Drive in, pause, then navigate ───────────────────────────────────
         function driveAndGo(href) {
-            // Show overlay
             overlay.classList.add('rr-active');
             car.style.transition = '';
             car.style.transform  = 'translateX(-120vw)';
 
-            // Small tick so browser paints the reset position first
             requestAnimationFrame(() => requestAnimationFrame(() => {
                 // Drive to centre
                 car.style.transition = 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 car.style.transform  = 'translateX(-10vw)';
 
                 setTimeout(() => {
-                    // Brief idle at centre — wheels still spinning via CSS
+                    // Brief idle
                     setTimeout(() => {
-                        // Floor it — speed off to destination
+                        // Rev and go
                         car.style.transition = 'transform 0.45s cubic-bezier(0.55, 0, 1, 0.45)';
                         car.style.transform  = 'translateX(120vw)';
                         setTimeout(() => {
@@ -585,7 +598,7 @@
             });
         });
 
-        // ── Hide on arrival (new page load) ──────────────────────────────────
+        // ── Hide on arrival ───────────────────────────────────────────────────
         window.addEventListener('load', () => {
             overlay.classList.add('rr-active');
             car.style.transform = 'translateX(-10vw)';

@@ -14,20 +14,44 @@ body::after {
 
 /* ── Navbar ──────────────────────────────────────────────────────────────── */
 .navbar {
-    background: rgba(0, 0, 0, 0.85) !important;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.6) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
 }
-.logo-link span,
-.nav-links a {
+.logo h1,
+.logo-link span {
     color: #fff !important;
 }
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--accent-color) !important;
+.nav-links {
+    gap: 0.5rem !important;
+}
+.nav-links li a {
+    color: rgba(255,255,255,0.75) !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,0.0) !important;
+    border: 1px solid transparent !important;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+}
+.nav-links li a:hover {
+    color: #fff !important;
+    background: rgba(255,255,255,0.12) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+    box-shadow: 0 0 12px rgba(255,255,255,0.1) !important;
+}
+.nav-links li a.active {
+    color: #000 !important;
+    background: #ffffff !important;
+    border-color: rgba(255,255,255,0.6) !important;
+    box-shadow: 0 0 18px rgba(255,255,255,0.25) !important;
+    font-weight: 700 !important;
 }
 .nav-links a.active::after {
-    background-color: var(--accent-color) !important;
+    display: none !important;
 }
 
 /* ── Section labels ──────────────────────────────────────────────────────── */
