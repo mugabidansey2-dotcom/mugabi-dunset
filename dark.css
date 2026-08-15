@@ -6,10 +6,22 @@
 /* ── Base ────────────────────────────────────────────────────────────────── */
 body {
     background: #000 !important;
+    color: #ffffff !important;
 }
 body::before,
 body::after {
     display: none !important;
+}
+
+/* Global text white */
+p, span, li, td, th, label, h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+}
+a {
+    color: #ffffff !important;
+}
+a:hover {
+    color: rgba(255,255,255,0.75) !important;
 }
 
 /* ── Navbar ──────────────────────────────────────────────────────────────── */
