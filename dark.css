@@ -166,7 +166,9 @@ footer p { color: rgba(255,255,255,0.5); }
     color: var(--accent-color) !important;
     margin-bottom: 0.3rem;
 }
-.skill-item > p { display: none; }
+.skill-item p {
+    color: #ffffff !important;
+}
 
 .timeline-item {
     background: rgba(255,255,255,0.05) !important;
