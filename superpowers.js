@@ -770,7 +770,7 @@
         initParallax();
         initLoadingScreen();
         initNeonGlow();
-        initPageTransitions();
+        // initPageTransitions(); // disabled — car loader removed
     });
 
 })();
