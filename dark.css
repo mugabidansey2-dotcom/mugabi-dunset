@@ -133,6 +133,18 @@ footer p { color: rgba(255,255,255,0.5); }
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .cta h3 { color: #fff !important; }
+.cta p  { color: rgba(255,255,255,0.75) !important; }
+.cta .btn-secondary {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 2px solid #fff !important;
+    font-weight: 700 !important;
+}
+.cta .btn-secondary:hover {
+    background-color: transparent !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
 
 /* ── About page ──────────────────────────────────────────────────────────── */
 .about-content {
