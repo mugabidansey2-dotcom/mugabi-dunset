@@ -198,11 +198,9 @@
 
         startWater();
 
-        // Only speak greeting on the home page
-        const isHome = window.location.pathname.endsWith('index.html') ||
-                       window.location.pathname.endsWith('/') ||
-                       window.location.pathname === '';
-        if (isHome) {
+        // Only speak greeting on the about page
+        const isAbout = window.location.pathname.endsWith('about.html');
+        if (isAbout) {
             setTimeout(speakGreeting, 800);
         }
 
