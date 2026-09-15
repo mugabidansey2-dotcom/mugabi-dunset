@@ -552,6 +552,79 @@ section h3 {
     color: var(--white);
 }
 
+/* ── Collaborators Section ───────────────────────────────────────────────── */
+.collaborators {
+    background: #000;
+    padding: 60px 20px;
+}
+.collaborators h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.collab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+.collab-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.collab-card:hover {
+    border-color: rgba(255,255,255,0.35);
+    box-shadow: 0 8px 32px rgba(255,255,255,0.08);
+    transform: translateY(-4px);
+}
+.collab-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 16px rgba(99,102,241,0.4);
+}
+.collab-info h4 {
+    color: #fff;
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+}
+.collab-info p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+.collab-link {
+    color: #a5b4fc;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+.collab-card:hover .collab-link {
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .collab-card { flex-direction: column; text-align: center; }
+    .collab-info p { font-size: 0.78rem; }
+}
+
 /* ── Typewriter cursor ───────────────────────────────────────────────────── */
 @keyframes typeCursorBlink {
     0%, 100% { opacity: 1; }
