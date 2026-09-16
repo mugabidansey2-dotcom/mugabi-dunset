@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mugabi Dunset — Logo</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  .logo-wrap {
+    display: inline-block;
+    max-width: 680px;
+    width: 100%;
+  }
+  .logo-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .pulse-node { animation: blink 2s ease-in-out infinite; }
+    .pulse-node:nth-child(2) { animation-delay: .35s; }
+    .pulse-node:nth-child(3) { animation-delay: .7s; }
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.35; transform: scale(0.75); }
+    }
+
+    .signal { animation: travel 2.4s linear infinite; }
+    @keyframes travel { to { stroke-dashoffset: -120; } }
+
+    .trace { stroke-dasharray: 220; animation: draw 3s ease-in-out infinite; }
+    @keyframes draw {
+      0%       { stroke-dashoffset: 220; }
+      45%, 55% { stroke-dashoffset: 0; }
+      100%     { stroke-dashoffset: -220; }
+    }
+
+    .bracket { animation: fade 2.4s ease-in-out infinite; }
+    .bracket.right { animation-delay: 1.2s; }
+    @keyframes fade {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.45; }
+    }
+
+    .ring { animation: spin 8s linear infinite; transform-origin: 150px 140px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  }
+</style>
+</head>
+<body>
+
+<div class="logo-wrap">
+  <svg viewBox="0 0 680 280" role="img" xmlns="http://www.w3.org/2000/svg">
+    <title>Mugabi Dunset</title>
+    <desc>Animated tech-themed logo reading Mugabi Dunset with pulsing circuit nodes, a traveling signal, a rotating ring, and a drawing-in circuit trace underline</desc>
+
+    <!-- Circuit-node icon -->
+    <g transform="translate(150,140)">
+      <circle cx="0" cy="0" r="46" fill="#0C447C"/>
+      <path d="M-20 -14 L18 -18 M18 -18 L0 16 M0 16 L-20 -14"
+            fill="none" stroke="#5DCAA5" stroke-width="2"
+            stroke-dasharray="6 4" class="signal"/>
+      <g fill="#EF9F27">
+        <circle class="pulse-node" cx="-20" cy="-14" r="4"/>
+        <circle class="pulse-node" cx="18" cy="-18" r="4"/>
+        <circle class="pulse-node" cx="0" cy="16" r="4"/>
+      </g>
+      <circle cx="0" cy="0" r="46" fill="none" stroke="#042C53" stroke-width="2"/>
+    </g>
+    <circle class="ring" cx="150" cy="140" r="58" fill="none"
+            stroke="#5DCAA5" stroke-width="1" stroke-dasharray="3 10" opacity="0.6"/>
+
+    <!-- Wordmark with bracket motif -->
+    <text class="bracket left" x="230" y="118" font-family="'Courier New', monospace"
+          font-size="30" font-weight="400" fill="#7F77DD">&lt;</text>
+    <text x="255" y="130" font-family="Arial, Helvetica, sans-serif"
+          font-size="50" font-weight="600" fill="#0C447C">Mugabi</text>
+    <text x="255" y="185" font-family="Arial, Helvetica, sans-serif"
+          font-size="50" font-weight="600" fill="#0F6E56">Dunset</text>
+    <text class="bracket right" x="590" y="185" font-family="'Courier New', monospace"
+          font-size="30" font-weight="400" fill="#7F77DD">/&gt;</text>
+
+    <!-- animated circuit trace underline -->
+    <path class="trace" d="M255 200 h60 v10 h60 v-10 h60 v10 h30"
+          fill="none" stroke="#EF9F27" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+</body>
+</html>

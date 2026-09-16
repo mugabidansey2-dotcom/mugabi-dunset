@@ -95,7 +95,7 @@ button:hover ~ #cursor-glow {
     transform: translateY(-3px) scale(1.08);
 }
 
-/* ── Loading screen ──────────────────────────────────────────────────────── */
+/* ── Animated logo loader ────────────────────────────────────────────────── */
 #loading-screen {
     position: fixed;
     inset: 0;
@@ -105,40 +105,87 @@ button:hover ~ #cursor-glow {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     transition: opacity 0.5s ease;
 }
 
-.loader-logo {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.1em;
-    text-shadow: 0 0 20px rgba(56, 189, 248, 0.8),
-                 0 0 40px rgba(56, 189, 248, 0.5);
+#loading-screen .logo-wrap {
+    width: min(520px, 88vw);
+}
+#loading-screen .logo-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
+/* Pulse nodes — use transform-box so scale works in SVG */
+.logo-pulse-node {
+    animation: logoBlink 2s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+.logo-pulse-node:nth-child(2) { animation-delay: .35s; }
+.logo-pulse-node:nth-child(3) { animation-delay: .7s; }
+@keyframes logoBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.3; transform: scale(0.65); }
+}
+
+/* Travelling signal along the triangle path */
+.logo-signal {
+    stroke-dasharray: 6 4;
+    animation: logoTravel 2.4s linear infinite;
+}
+@keyframes logoTravel {
+    to { stroke-dashoffset: -120; }
+}
+
+/* Circuit trace draw-in */
+.logo-trace {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: logoDraw 3s ease-in-out infinite;
+}
+@keyframes logoDraw {
+    0%       { stroke-dashoffset: 220; }
+    45%, 55% { stroke-dashoffset: 0; }
+    100%     { stroke-dashoffset: -220; }
+}
+
+/* Bracket fade */
+.logo-bracket {
+    animation: logoFade 2.4s ease-in-out infinite;
+}
+.logo-bracket-right { animation-delay: 1.2s; }
+@keyframes logoFade {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
+/* Ring spin */
+.logo-ring {
+    animation: logoSpin 8s linear infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+@keyframes logoSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Progress bar */
 .loader-bar {
-    width: 200px;
+    width: min(320px, 70vw);
     height: 3px;
     background: rgba(255,255,255,0.1);
     border-radius: 999px;
     overflow: hidden;
 }
-
 .loader-fill {
     height: 100%;
-    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    background: linear-gradient(90deg, #5DCAA5, #7F77DD, #EF9F27);
     border-radius: 999px;
-    animation: loaderFill 0.8s ease-out forwards;
-    box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+    animation: loaderFill 1.2s ease-out forwards;
 }
-
-@keyframes loaderFill {
-    from { width: 0; }
-    to   { width: 100%; }
-}
-
 /* ── Page transition — Mustang loader ────────────────────────────────────── */
 #rr-transition {
     position: fixed;
